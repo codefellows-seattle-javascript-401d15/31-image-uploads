@@ -28,7 +28,7 @@ npm init
 ```
 Dependencies:
 ```
-npm i -S @uirouter/angularjs angular babel-core babel-loader babel-preset-es2015 camelcase clean-webpack-plugin css-loader dotenv extract-text-webpack-plugin file-loader html-loader html-webpack-plugin node-sass pascalcase sass-loader style-loader url-loader webpack
+npm i -S @uirouter/angularjs angular babel-core babel-loader babel-preset-es2015 camelcase clean-webpack-plugin css-loader dotenv extract-text-webpack-plugin file-loader html-loader html-webpack-plugin ng-file-upload node-sass pascalcase sass-loader style-loader url-loader webpack
 ```
 Dev Dependencies:
 ```
@@ -63,6 +63,7 @@ The result of installation above:
   "file-loader": "^0.11.2",
   "html-loader": "^0.4.5",
   "html-webpack-plugin": "^2.28.0",
+  "ng-file-upload": "^12.2.13",
   "node-sass": "^4.5.3",
   "pascalcase": "^0.1.1",
   "sass-loader": "^6.0.5",
@@ -208,7 +209,7 @@ Result: "Project is running at http://localhost:8080/", "webpack: Compiled succe
 * [Testing with Protractor](http://www.ng-newsletter.com/posts/practical-protractor.html)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/mmpadget/) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/mmpadget/31-image-uploads/blob/lab-31/lab-padget/LICENSE) file for details.
 
 ## Acknowledgments
 * Code Fellows
