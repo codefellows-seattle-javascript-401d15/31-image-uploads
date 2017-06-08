@@ -23,21 +23,15 @@ module.exports = [
 
       this.fetchGalleries = () => {
         return galleryService.fetchGalleries()
-        .then(galleries => this.galleries = galleries)
+        .then(galleries => {
+          this.galleries = galleries;
+          this.currentGallery = this.galleries[0];
+        })
         .catch(err => $log.error(err));
       };
 
       $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
-      this.fetchGalleries();
+      return this.fetchGalleries();
     };
   },
 ];
-
-// 27
-// module.exports = ['$log', HomeController];
-//
-// function HomeController($log) {
-//   $log.debug('HomeController()');
-//   this.title = 'Home';
-//   this.subTitle = 'Welcome to the home page';
-// }
