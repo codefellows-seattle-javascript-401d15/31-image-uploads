@@ -8,8 +8,9 @@ const camelcase = require('camelcase');
 const pascalcase = require('pascalcase');
 const angular = require('angular');
 require('@uirouter/angularjs');
+require('ng-file-upload');
 
-const routesApp = angular.module('routesApp', ['ui.router']);
+const routesApp = angular.module('routesApp', ['ui.router', 'ngFileUpload']);
 // const routesApp = angular.module('routesApp', ['uiRouter']);
 
 let context = require.context('./config/', true, /\.js$/);
