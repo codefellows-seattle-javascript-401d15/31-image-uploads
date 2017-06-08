@@ -24,7 +24,7 @@ describe('Testing the Login Controller', function() {
   describe('testing loginCtrl.login()', () => {
     
     it('should make a valid GET request to log in', () => {
-      let expectUser = {
+      let expectUser = loginCtrl.user = {
         username: 'testname',
         email: 'test@test.com',
         password: 'password'
