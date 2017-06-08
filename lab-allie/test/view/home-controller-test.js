@@ -30,7 +30,7 @@ describe('Testing the Home Controller', function() {
   });
   
   
-  fdescribe('should execute the fetchGalleries method', () => {
+  describe('should execute the fetchGalleries method', () => {
     beforeEach(() => {      
       this.expectUrl = 'http://localhost:3000/api/gallery';
       
@@ -60,7 +60,7 @@ describe('Testing the Home Controller', function() {
     
     it('should make a valid GET request', () => {
       this.$httpBackend.expectGET(this.expectUrl, this.expectHeaders).respond(200);
-      
+      this.homeCtrl.fetchGalleries();
     });
 
     it('should fetch the galleries', () => {

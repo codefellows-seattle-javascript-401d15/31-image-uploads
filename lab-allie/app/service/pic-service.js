@@ -51,23 +51,28 @@ module.exports = [
         
         let config = {          
           headers: {
-            Accept: 'application/json',
+            Accept: 'application/json, text/plain, */*',
             Authorization: `Bearer ${token}`,
           }
         };
-        return $http.delete(url, config)        
+        return $http.delete(url, config);
       })
-      .then(res => {
-        gallery.pic.forEach((ele, idx) => {
-          if (ele._id === res.data._id)
-          gallery.pic.splice(idx, 1);
-        })
-        return gallery.pic;
-      })
-      .catch(err => {
-        $log.error(err.message);
-        return $q.reject(err);
-      })
+      .then(
+        () => {
+          $log.log('Pic deleted!');
+          
+          for(let i = 0; i < gallery.pics.length; i++) {
+            if(gallery.pics[i]._id === pic._id) {
+              gallery.pics.splice(i, 1);
+              break;
+            }
+          }
+        },
+        err => {
+          $log.error(err.message);
+          return $q.reject(err);
+        }
+      );
     };
     
     return service;

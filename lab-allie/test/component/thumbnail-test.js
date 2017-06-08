@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Thumbnail Controller', function() {
+fdescribe('Thumbnail Controller', function() {
   beforeEach(() => {  /* eslint-disable */
     angular.mock.module('routesApp');
     angular.mock.inject(($rootScope, $window, $httpBackend, $componentController, picService) => {
@@ -20,6 +20,7 @@ describe('Thumbnail Controller', function() {
         gallery: {
           name: 'galleryOne',
           desc: 'descOne',
+          pics: [],
           _id: '456'
         }
       }
@@ -33,7 +34,7 @@ describe('Thumbnail Controller', function() {
         'thumbnail', 
         {
           scope: this.scope,
-          picService: this.picSerice,
+          picService: this.picService,
         },
         this.mockBindings
       );
@@ -55,8 +56,7 @@ describe('Thumbnail Controller', function() {
       this.expectUrl = 'http://localhost:3000/api/gallery/456/pic/123';
       
       this.expectHeaders = {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: 'application/json, text/plain, */*',
         Authorization: `Bearer ${this.$window.localStorage.token}`
       };
     })

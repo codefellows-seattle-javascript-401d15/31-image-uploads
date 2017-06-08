@@ -12,11 +12,8 @@ module.exports = {
       $log.debug('Thumbnail controller');
             
       this.deletePic = () => {
-        picService.deletePic(this.pic)
-        .then(
-          () => $log.log('Picture deleted!'),
-          err => $log.error(err)
-        );
+        $log.debug('thumbnailCtrl.deletePic()');
+        picService.deletePic(this.gallery, this.pic);
       };
     };
   }],
