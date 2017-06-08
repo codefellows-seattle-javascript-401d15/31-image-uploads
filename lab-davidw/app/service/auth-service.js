@@ -44,7 +44,6 @@ module.exports = [
       $log.debug('authService.signup()');
 
       let url = `${__API_URL__}/api/signup`;
-      console.log('Where is my url??', `${__API_URL__}`);
       let config = {
         headers: {
           'Content-Type': 'application/json',

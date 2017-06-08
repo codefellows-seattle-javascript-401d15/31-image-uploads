@@ -62,6 +62,7 @@ module.exports = [
     };
 
     service.deleteGallery = (galleryId) => {
+      console.log('IR In Yer Delete', galleryId);
       $log.debug('#galleryService.deleteGallery');
 
       return authService.getToken()
@@ -76,7 +77,7 @@ module.exports = [
         };
         return $http.delete(url, config);
       })
-      .then( () => {
+      .then(res => {
         service.galleries.forEach((ele, idx) => {
           if(ele._id === galleryId) service.galleries.splice(idx, 1);
         });
@@ -107,7 +108,7 @@ module.exports = [
         service.galleries.forEach((ele, idx) => {
           if(ele._id === res.data._id) service.galleries[idx] = res.data;
         });
-        return res.data;
+        return service.gallerries;
       })
       .catch(err => {
         $log.error(err.message);

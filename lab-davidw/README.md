@@ -1,4 +1,4 @@
-# lab 29 Angular Component Bindings
+# lab 31 Angular Image Uploads
 
 ## Goal
 to build an auth service for our frontend app and hook it up to the slugram staging back-end, add a Gallery and logout.
@@ -61,9 +61,10 @@ AWS_SECRET_ACCESS_KEY='<your secret key>'
   - You will be taken to Home, upon sign up.
 - On subsequent visits, you can sign in, to be taken to home.
 - You can create a Gallery.
-- You can edit your Gallery
+- You can edit your Gallery name and description
 - You can logout, and will be taken to the login page.
-
-##### Upcoming features:
 - add photos to an S3 bucket
 - and display the same images in the Gallery
+
+##### Upcoming features:
+- delete images from a gallery

@@ -1,10 +1,10 @@
 'use strict';
 
-// require('./_upload-pic.scss')
+// require('./_delete-pic.scss')
 
 module.exports = {
   template: require('./delete-pic.html'),
-  controllerAs: 'uploadPicCtrl',
+  controllerAs: 'deletePicCtrl',
   bindings: {
     gallery: '<',
   },
@@ -13,11 +13,11 @@ module.exports = {
     'picService',
     function($log, picService) {
       this.$onInit = () => {
-        $log.debug('uploadPicController');
+        $log.debug('deletePicController');
         this.pic = {};
 
         this.uploadPic = () => {
-          picService.uploadPic(this.gallery, this.pic)
+          picService.deletePic(this.gallery, this.pic)
           .then(
             () => {
               this.pic.name = null;
