@@ -3,18 +3,14 @@
 module.exports = {
   template: require('./gallery-item.html'),
   controllerAs: 'galleryItemCtrl',
-  controller: ['$log', 'galleryService', function($log, galleryService) {
+  controller: ['$log', 'galleryService', 'picService', function($log, galleryService, picService) {
     $log.debug('Gallery Item Controller');
-    console.log(galleryService);
 
     this.showEditGallery = false;
 
     this.deleteGallery = () => {
-      galleryService.deleteGallery(this.gallery._id)
-      .then(
-        res => $log.log(`${res.status}`, 'delete gallery'),
-        err => $log.error(err)
-      );
+      this.gallery.pics.forEach(pic => picService.deletePicFile(this.gallery, pic._id));
+      galleryService.deleteGallery(this.gallery._id);
     };
   }],
   bindings: {
