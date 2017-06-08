@@ -44,13 +44,13 @@ module.exports = [
       $log.debug('authService.signup()');
 
       let url = `${__API_URL__}/api/signup`;
+      console.log('Where is my url??', `${__API_URL__}`);
       let config = {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
       };
-      console.log('scott was here', user);
 
       return $http.post(url, user, config)
       .then(res => {
@@ -66,7 +66,7 @@ module.exports = [
     service.login = function(user) {
       $log.debug('authService.login()');
 
-      let url = `http://localhost:3000/api/login`;
+      let url = `${__API_URL__}/api/login`;
       let base64 = $window.btoa(`${user.username}:${user.password}`);
       let config = {
         headers: {
