@@ -45,23 +45,28 @@ describe('Testing the Home Controller', function() {
       this.$rootScope.$apply();
     });
     
-    let expectGalleries = [
+    this.expectGalleries = [
       {
         name: 'one',
-        desc: 'one'
+        desc: 'one',
+        _id: '123'
       },
       {
         name: 'two',
-        desc: 'two'
+        desc: 'two',
+        _id: '456'
       }
     ];
     
     it('should make a valid GET request', () => {
       this.$httpBackend.expectGET(this.expectUrl, this.expectHeaders).respond(200);
       
-    })
+    });
 
-    // this.$httpBackend.whenGET(this.expectUrl, this.expectHeaders).respond(200, this.expectGalleries)
+    it('should fetch the galleries', () => {
+      this.$httpBackend.whenGET(this.expectUrl, this.expectHeaders).respond(200, this.expectGalleries)
+    });
+
     // expect(this.homeCtrl.fetchGalleries).not.toThrow();
   });
 });
