@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Gallery item component', function() {
+describe('Edit gallery component', function() {
   beforeEach(() => { /* eslint-disable */
     angular.mock.module('routesApp');
     angular.mock.inject(($rootScope, $httpBackend, $window, $componentController, authService) => {
@@ -9,24 +9,30 @@ describe('Gallery item component', function() {
       this.$window = $window;
       this.$componentController = $componentController;
       this.authService = authService;
-      this.galleryItemCtrl = $componentController('galleryItem');
-    })
+      this.editGalleryCtrl = $componentController('editGallery');
+    });
   });
   
   beforeEach(() => {
-    this.galleryItemCtrl.$onInit();
+    this.editGalleryCtrl.$onInit();
     this.$window.localStorage.setItem('token', 'test token');
   });
   
-  describe('testing galleryItemCtrl.deleteGallery()', () => {
-    it('should call the delete method', () => {
+  // afterEach(() => {
+  //   this.$window.localStorage.removeItem('token');
+  //   this.$httpBackend.flush();
+  //   this.$rootScope.$apply();
+  // })
+  
+  describe('testing editGalleryCtrl.updateGallery()', () => {
+    it('should update the gallery', () => {
       let mockBindings = {
         gallery: {
           name: 'test name',
           desc: 'test description',
           _id: '123'
         },
-        deleteGallery: function(gallery) {
+        updateGallery: function(gallery) {
           expect(gallery._id).toEqual('123');
           expect(gallery.name).toEqual('test name');
           expect(gallery.desc).toEqual('test description');
@@ -34,14 +40,14 @@ describe('Gallery item component', function() {
       }
     });
     
-    it('should delete the gallery', () => {
+    it('should update the gallery', () => {
       let expectUrl = 'http://localhost:3000/api/gallery/123';
       
       let expectHeaders = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         Authorization: `Bearer ${this.$window.localStorage.token}`
-      }
+      };
       
       let mockBindings = {
         gallery: {
@@ -49,19 +55,26 @@ describe('Gallery item component', function() {
           desc: 'test description',
           _id: '123'
         }
-      }
+      };
+      
+      let mockUpdate = {
+        gallery: {
+          name: 'new name',
+          desc: 'new description',
+          _id: '123',
+        }
+      };
       
       this.$rootScope.$apply();
       
-      this.$httpBackend.whenDELETE(expectUrl, expectHeaders).respond(204);
+      this.$httpBackend.whenPUT(expectUrl, mockUpdate, expectHeaders).respond(200);
       
-      this.galleryItemCtrl.gallery = mockBindings.gallery;
-            
-      expect(this.galleryItemCtrl.deleteGallery).not.toThrow();
+      this.editGalleryCtrl.gallery = mockUpdate.gallery;
       
-      expect(this.galleryItemCtrl.showEditGallery).toBe(false);
+      expect(this.editGalleryCtrl.updateGallery).not.toThrow();
+      expect(this.editGalleryCtrl.gallery.name).toBe('new name');
+      expect(this.editGalleryCtrl.gallery.desc).toBe('new description');
     });
-    
   });
   
 });
