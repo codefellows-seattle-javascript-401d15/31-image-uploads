@@ -8,8 +8,12 @@
   </div>
 
   <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
-  <span ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</span>
+  <!-- <span ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</span> -->
 
+  <!-- Gallery edit button toggles show or hide edit fields -->
+  <button ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery" type="submit" name="edit gallery">edit</button>
+
+  <!-- Gallery delete button deletes an existing gallery -->
   <button ng-click="galleryItemCtrl.deleteGallery()" type="submit" name="submit update">delete</button>
 
 </li>

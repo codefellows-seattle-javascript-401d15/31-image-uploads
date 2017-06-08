@@ -1,3 +1,7 @@
 <div>
-  <img src="{{ thumbnailCtrl.pic.imageURI }}" alt="{{ thumbnailCtrl.pic.desc }}">
+  <img ng-src="{{ thumbnailCtrl.pic.imageURI }}" alt="{{ thumbnailCtrl.pic.desc }}">
+</div>
+
+<div>
+  <button ng-click="thumbnailCtrl.deletePicFile()" type="submit" name="submit update">delete</button>
 </div>
