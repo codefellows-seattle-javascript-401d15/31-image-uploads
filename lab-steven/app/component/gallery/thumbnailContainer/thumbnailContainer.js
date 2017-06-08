@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  template: require('./thumbnail-container.html'),
+  template: require('./thumbnailContainer.html'),
   controllerAs: 'thumbnailContainerCtrl',
   bindings: {
     gallery: '<',
