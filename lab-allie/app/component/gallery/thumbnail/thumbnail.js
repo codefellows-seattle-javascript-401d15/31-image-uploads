@@ -10,9 +10,7 @@ module.exports = {
   controller: ['$log', 'picService', function($log, picService) {
     this.$onInit = () => {
       $log.debug('Thumbnail controller');
-      
-      this.currentGallery = 
-      
+            
       this.deletePic = () => {
         picService.deletePic(this.pic)
         .then(
