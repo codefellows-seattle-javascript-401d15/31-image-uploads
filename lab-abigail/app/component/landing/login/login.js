@@ -21,6 +21,8 @@ module.exports = {
           );
         }
 
+        this.title = 'Login';
+
         this.login = function() {
           $log.log('loginCtrl.login()');
 
