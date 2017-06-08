@@ -29,8 +29,9 @@ module.exports = [
         })
         .catch(err => $log.error(err));
       };
-
-      $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
-      return this.fetchGalleries();
+      this.fetchGalleries();
+      $rootScope.$on('$locationChangeSuccess', () => {
+        this.fetchGalleries();
+      });
     };
   }];
