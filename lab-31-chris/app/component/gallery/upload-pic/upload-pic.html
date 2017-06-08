@@ -1,0 +1,20 @@
+<section class="pic-upload">
+  <form
+    ng-submit="uploadPicCtrl.uploadPic()"
+    novalidate>
+    <div>
+      <label for="name">name: </label>
+      <input type="text" name="name" placeholder="name" ng-model="uploadPicCtrl.pic.name">
+    </div>
+    <div>
+      <label for="desc">desc: </label>
+      <input type="text" name="desc" placeholder="desc" ng-model="uploadPicCtrl.pic.desc">
+    </div>
+    <div>
+      <p>select a picture to upload</p>
+      <input ngf-select type="file" ng-model="uploadPicCtrl.pic.file"></input>
+      <button type="submit" name="upload picture">upload file</button>
+    </div>
+
+  </form>
+</section>
