@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable */
 module.exports = [
   '$log', '$q', '$http', 'Upload', 'authService', 
   function($log, $q, $http, Upload, authService) {
@@ -16,7 +16,7 @@ module.exports = [
         
         let headers = {
           Authorization: `Bearer ${token}`,
-          Accept: 'application/json'
+          Accept: 'application/json',
         };
         
         return Upload.upload({
