@@ -13,9 +13,20 @@ module.exports = {
           err => $log.error(err)
         );
       };
-    };
-    this.showEditGallery = false;
+      
+      this.showEditGallery = false;
 
+      this.makeCurrentGallery = () => {
+        let index;
+        for(let i = 0; i< this.galleries.length; i++) {
+          if(this.galleries[i]._id === this.gallery._id) {
+            index = i
+          }
+        }
+        this.currentGallery = this.galleries[index];
+
+      };
+    };
   }],
   bindings: {
     gallery: '<',
