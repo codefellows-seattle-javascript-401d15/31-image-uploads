@@ -121,21 +121,21 @@ http://localhost:3000
 Use this route to:
 
 1. Signup with username, email, and password:
-..* POST: `/api/signup`
+- POST: `/api/signup`
 2. Login with an existing username and password:
-..* GET: `/api/login`
+- GET: `/api/login`
 3. Create a gallery:
-..* POST: `/api/gallery`
+- POST: `/api/gallery`
 4. Get an array of all of a users galleries:
-..* GET: `/api/gallery`
+- GET: `/api/gallery`
 5. Update a gallery with new information:
-..* PUT `/api/gallery/<galleryID>`
+- PUT `/api/gallery/<galleryID>`
 6. Delete a gallery:
-..* DELETE: `/api/gallery/<galleryID>`
+- DELETE: `/api/gallery/<galleryID>`
 7. Create a pic associated with a gallery:
-..* POST: `/api/gallery/<galleryID>/pic`
+- POST: `/api/gallery/<galleryID>/pic`
 8. Delete a pic:
-..* DELETE: `/api/gallery/<galleryID>/pic/<picID>`
+- DELETE: `/api/gallery/<galleryID>/pic/<picID>`
 
 ## Database
 To clear the mongoDB, use Terminal to:
