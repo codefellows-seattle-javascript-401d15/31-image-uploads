@@ -35,7 +35,7 @@ describe('Gallery item component', function() {
       
     });
     
-    it('should delete the gallery', () => {
+    fit('should delete the gallery', () => {
       let expectUrl = 'http://localhost:3000/apigallery/123';
       
       let expectHeaders = {
@@ -60,6 +60,7 @@ describe('Gallery item component', function() {
             
       expect(this.galleryItemCtrl.deleteGallery).not.toThrow();
       
+      expect(this.galleryItemCtrl.showEditGallery).toBe(false);
     });
     
   });
