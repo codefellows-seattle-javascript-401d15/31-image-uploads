@@ -19,13 +19,15 @@
 
       <div>
         <button
+          type="button"
           ngf-select
           ng-if="!uploadPicCtrl.pic.file"
           ng-model="uploadPicCtrl.pic.file">Choose a File</button>
           <button
+            type="button"
             ngf-select
             ng-if="uploadPicCtrl.pic.file"
-            ng-model="uploadPicCtrl.pic.file">{{ uploadPicCtrl.pic.file }}</button>
+            ng-model="uploadPicCtrl.pic.file">{{ uploadPicCtrl.pic.file.name }}</button>
 
         <button type="submit" name="upload picture">upload file</button>
 

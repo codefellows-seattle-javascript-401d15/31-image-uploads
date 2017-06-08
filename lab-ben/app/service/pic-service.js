@@ -34,7 +34,7 @@ module.exports = [
         });
       })
       .then(res => {
-        res.gallery.pics.push(res.data);
+        gallery.pics.push(res.data);
         return res.data;
       },
         err => {

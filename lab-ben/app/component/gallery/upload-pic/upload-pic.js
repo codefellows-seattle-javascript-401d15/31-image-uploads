@@ -25,7 +25,10 @@ module.exports = {
               this.pic.desc = null;
               this.pic.file = null;
             },
-            err => $log.error(err)
+            err => {
+              $log.error(err);
+              return err;
+            }
           );
         };
       };
