@@ -1,7 +1,10 @@
-# Lab 31: Component Bindings
+# Lab 31: Image Uploads
 
 ## Description
 For this lab we added image upload functionality to the existing cfgram app. An uploaded image is added to the gallery of pictures. An image icon shows the image upload was successful. A picture can also be deleted.
+
+* [Class 31](https://github.com/codefellows/seattle-javascript-401d15/tree/master/class-31-image-uploads)
+* [Lab 31](https://github.com/codefellows-seattle-javascript-401d15/31-image-uploads)
 
 ## Version
 * 0.1.0
