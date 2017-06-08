@@ -1,0 +1,18 @@
+@import "../../../scss/lib/theme/_index.scss";
+
+button {
+  background: $app-color-blue;
+}
+
+.gallery-info {
+  border: 1px solid $app-color-green;
+}
+
+.gallery-item {
+  margin: 2vw auto;
+  list-style: none;
+  p {
+    margin: .25em auto;
+    text-align: left;
+  }
+}
