@@ -20,7 +20,6 @@ module.exports = {
         })
         .catch(err => $log.error(err));
       };
-
     };
   }],
 };
