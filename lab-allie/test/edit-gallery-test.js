@@ -18,12 +18,6 @@ describe('Edit gallery component', function() {
     this.$window.localStorage.setItem('token', 'test token');
   });
   
-  // afterEach(() => {
-  //   this.$window.localStorage.removeItem('token');
-  //   this.$httpBackend.flush();
-  //   this.$rootScope.$apply();
-  // })
-  
   describe('testing editGalleryCtrl.updateGallery()', () => {
     it('should update the gallery', () => {
       let mockBindings = {
