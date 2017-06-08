@@ -5,4 +5,6 @@
   <ul>
     <gallery-item ng-repeat="gallery in homeCtrl.galleries" gallery="gallery"></gallery-item>
   </ul>
+
+  <thumbnail-container ng-if="homeCtrl.currentGallery" gallery="homeCtrl.currentGallery"></thumbnail-container>
 </section>
