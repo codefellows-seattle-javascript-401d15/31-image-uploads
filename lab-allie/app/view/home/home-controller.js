@@ -22,6 +22,7 @@ module.exports = [
       };
       
       $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
+      $rootScope.$on('newGalleryCreation', this.fetchGalleries);
       
       this.fetchGalleries();
     };
