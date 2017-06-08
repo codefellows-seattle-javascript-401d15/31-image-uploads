@@ -46,6 +46,9 @@ describe('Create Gallery Component', function() {
       .respond(200, expectGallery);
       this.createGalleryCtrl.gallery = expectGallery;
       expect(this.createGalleryCtrl.createGallery).to.not.throw();
+
+      this.$httpBackend.flush();
+      this.$rootScope.$apply();
       done();
     });
   });

@@ -1,6 +1,5 @@
 'use strict';
 
-// 27
 const angular = require('angular');
 require('angular-mocks');
 

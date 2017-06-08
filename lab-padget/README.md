@@ -1,7 +1,7 @@
 # Lab 31: Component Bindings
 
 ## Description
-For this lab we continued working with our front-end angular app utilizing a pre-built backend called slugram. We created a component for displaying, editing, and deleting a gallery.
+For this lab we added image upload functionality to the existing cfgram app. An uploaded image is added to the gallery of pictures. An image icon shows the image upload was successful. A picture can also be deleted.
 
 ## Version
 * 0.1.0
@@ -115,17 +115,31 @@ Exit with control + c
 ## API
 http://localhost:3000
 
-* POST: `/api/signup`
-* GET: `/api/login`
+Use this route to:
 
-* POST: `/api/gallery`
-* GET: `/api/gallery`
+Signup with username, email, and password:
+1. POST: `/api/signup`
 
-* PUT `/api/gallery/<galleryID>`
-* DELETE: `/api/gallery/<galleryID>`
+Login with an existing username and password:
+2. GET: `/api/login`
 
-* POST: `/api/gallery/<galleryID>/pic`
-* DELETE: `/api/gallery/<galleryID>/pic/<picID>`
+Create a gallery:
+3. POST: `/api/gallery`
+
+Get an array of all of a users galleries:
+4. GET: `/api/gallery`
+
+Update a gallery with new information:
+5. PUT `/api/gallery/<galleryID>`
+
+Delete a gallery:
+6. DELETE: `/api/gallery/<galleryID>`
+
+Create a pic associated with a gallery:
+7. POST: `/api/gallery/<galleryID>/pic`
+
+Delete a pic:
+8. DELETE: `/api/gallery/<galleryID>/pic/<picID>`
 
 ## Database
 To clear the mongoDB, use Terminal to:
