@@ -1,0 +1,20 @@
+<section>
+  <form
+    ng-submit="deletePicCtrl.deletePic()"
+    novalidate>
+
+    <fieldset>
+      <label for="name">name</label>
+      <input class="input-std" type="text" name="name" placeholder="name" ng-model="deletePicCtrl.pic._id">
+      <label for="desc">desc</label>
+    </fieldset>
+
+    <div>
+      <p ngf-select ng-model="deletePicCtrl.pic.file">
+        choose file
+      </p>
+      <button type="submit" name="delete picture">delete pic</button>
+    </div>
+
+  </form>
+</section>
