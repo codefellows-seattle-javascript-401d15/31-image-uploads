@@ -31,7 +31,7 @@ npm init
 ```
 Dependencies:
 ```
-npm i -S @uirouter/angularjs angular babel-core babel-loader babel-preset-es2015 camelcase clean-webpack-plugin css-loader dotenv extract-text-webpack-plugin file-loader html-loader html-webpack-plugin ng-file-upload node-sass pascalcase sass-loader style-loader url-loader webpack
+npm i -S @uirouter/angularjs angular babel-core babel-loader babel-preset-es2015 camelcase clean-webpack-plugin css-loader dotenv extract-text-webpack-plugin file-loader html-loader html-webpack-plugin ng-file-upload node-sass pascalcase sass-loader style-loader url-loader uuid webpack
 ```
 Dev Dependencies:
 ```
@@ -72,6 +72,7 @@ The result of installation above:
   "sass-loader": "^6.0.5",
   "style-loader": "^0.18.2",
   "url-loader": "^0.5.8",
+  "uuid": "^3.0.1",
   "webpack": "^2.6.1"
 },
 "devDependencies": {
