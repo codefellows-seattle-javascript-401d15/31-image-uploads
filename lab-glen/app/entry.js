@@ -7,11 +7,10 @@ const camelcase = require('camelcase');
 const pascalcase = require('pascalcase');
 const angular = require('angular');
 
-// const ngTouch = require('angular-touch');
-
+require('ng-file-upload');
 require('@uirouter/angularjs');
 
-const cfgram = angular.module('cfgram', ['ui.router']);
+const cfgram = angular.module('cfgram', ['ui.router', 'ngFileUpload']);
 
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach(key => cfgram.config(context(key)));
