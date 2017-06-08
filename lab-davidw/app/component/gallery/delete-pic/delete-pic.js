@@ -6,6 +6,7 @@ module.exports = {
   template: require('./delete-pic.html'),
   controllerAs: 'deletePicCtrl',
   bindings: {
+    pic: '<',
     gallery: '<',
   },
   controller: [
@@ -16,7 +17,7 @@ module.exports = {
         $log.debug('deletePicController');
         this.pic = {};
 
-        this.uploadPic = () => {
+        this.deletePic = () => {
           picService.deletePic(this.gallery, this.pic)
           .then(
             () => {
