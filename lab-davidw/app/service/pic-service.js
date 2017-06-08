@@ -5,8 +5,9 @@ module.exports = [
   '$log',
   '$http',
   'Upload',
+  'Delete',
   'authService',
-  function($q, $log, $http, Upload, authService) {
+  function($q, $log, $http, Upload, Delete, authService) {
     $log.debug('Pic Service');
 
     let service = {};
