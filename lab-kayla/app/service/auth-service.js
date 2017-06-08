@@ -63,7 +63,7 @@ module.exports = [
       $log.debug('authService.login()')
 
       let url = `${__API_URL__}/api/login`
-      let base64 = $window.btoa(`${user.username}:${user.password}`)
+      let base64 = $window.btoa(`${user.userName}:${user.password}`)
       let config = {
         headers: {
           Accept: 'application/json',
