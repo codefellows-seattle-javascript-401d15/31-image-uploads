@@ -1,8 +1,8 @@
 'use strict';
 
 const expect = require('chai').expect;
-const angular = require('angular');
-require('angular-mocks');
+// const angular = require('angular');
+// require('angular-mocks');
 
 describe('Auth Service', function() {
   beforeEach(done => {

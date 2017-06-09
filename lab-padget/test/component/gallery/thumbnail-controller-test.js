@@ -1,8 +1,8 @@
 'use strict';
 
-// const expect = require('chai').expect;
-const angular = require('angular');
-require('angular-mocks');
+const expect = require('chai').expect;
+// const angular = require('angular');
+// require('angular-mocks');
 
 describe('Thumbnail Controller', function() {
   beforeEach(done => {
