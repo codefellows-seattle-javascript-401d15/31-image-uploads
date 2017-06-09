@@ -37,6 +37,43 @@ describe('Gallery Controller', function() {
       expect(this.galleryCtrl.galleries).to.be.instanceOf(Array);
       done();
     });
+
+    it('should have a title', done => {
+      expect(this.galleryCtrl.title).to.equal('This is where the pictures go');
+      done();
+    });
+
+    it('should have a function called fetchGalleries', done => {
+      expect(this.galleryCtrl.fetchGalleries).to.be.instanceOf(Function);
+      done();
+    });
   });
 
+  describe('Method Functionality', () => {
+    describe('#fetchGalleries', () => {
+      beforeEach(done => {
+        this.expectUrl = 'http://localhost:3000/api/gallery';
+        this.expectHeaders = {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${this.$window.localStorage.token}`,
+        };
+        this.expectGalleries = [
+          {name: 'one', desc: 'one', _id: '1111'},
+          {name: 'two', desc: 'two', _id: '2222'},
+        ];
+        done();
+      });
+      afterEach(done => {
+        this.$httpBackend.flush();
+        this.$rootScope.$apply();
+        done();
+      });
+
+      it('should make a valid GET request', done => {
+        this.$httpBackend.expectGET(this.expectUrl, this.expectHeaders)
+          .respond(200, this.expectGalleries);
+        done();
+      });
+    });
+  });
 });
