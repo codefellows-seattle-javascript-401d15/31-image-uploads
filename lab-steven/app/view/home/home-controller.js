@@ -20,18 +20,22 @@ module.exports = [
       }
       this.title = 'Home Title';
       this.galleries = [];
+      this.currentGallery;
 
       this.fetchGalleries = () => {
+        $log.log('homeCtrl fetchGal called');
         return galleryService.fetchGalleries()
         .then(galleries => {
           this.galleries = galleries;
-          this.currentGallery = this.galleries[0];
+          // this.currentGallery = this.galleries[0];
+          $log.log('homeCtrl gallery fetched', galleries);
         })
         .catch(err => $log.error(err));
       };
       this.fetchGalleries();
       $rootScope.$on('$locationChangeSuccess', () => {
-        this.fetchGalleries();
+        return this.fetchGalleries();
       });
+
     };
   }];

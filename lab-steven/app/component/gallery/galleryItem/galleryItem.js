@@ -3,7 +3,7 @@
 module.exports = {
   template: require('./galleryItem.html'),
   controllerAs: 'galleryItemCtrl',
-  controller: ['$log', 'galleryService', function($log, galleryService){
+  controller: ['$log', '$rootScope', 'galleryService', function($log, $rootScope, galleryService){
     this.$onInit = () => {
       $log.debug('#galleryItemCtrl');
 

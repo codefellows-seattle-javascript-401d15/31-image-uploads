@@ -38,9 +38,30 @@ module.exports = ['$log', '$q', '$http', 'Upload', 'authService',
       });
     };
 
-    // service.deletePic = function(gallery, pic){
-    //
-    // };
+    service.deletePic = function(gallery, pic){
+      $log.debug('#deletePic');
+
+      return authService.getToken()
+      .then(token => {
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic/${pic._id}`;
+        let config = {
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        $http.delete(url, config);
+      })
+      .then(() => {
+        $log.log('pic deleted');
+        gallery.pics.forEach((ele, i) => {
+          if(ele._id === pic._id) gallery.pics.splice(i, 1);
+        }, err => {
+          $log.error(err);
+          $q.reject(err);
+        });
+      });
+    };
 
     return service;
   }];

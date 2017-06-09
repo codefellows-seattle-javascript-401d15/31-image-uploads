@@ -3,7 +3,7 @@
 module.exports = {
   template: require('./createGallery.html'),
   controllerAs: 'createGalleryCtrl',
-  controller: ['$log', 'galleryService', function($log, galleryService){
+  controller: ['$log', '$rootScope', 'galleryService', function($log, $rootScope, galleryService){
     this.$onInit = () => {
       $log.debug('Create Gallery Controller');
       this.gallery = {};
@@ -11,6 +11,7 @@ module.exports = {
       this.createGallery = () => {
         return galleryService.createGallery(this.gallery)
         .then(() => {
+          // $rootScope.$emit('showPicUpload');
           let res = this.gallery;
           this.gallery.name = null;
           this.gallery.desc = null;
