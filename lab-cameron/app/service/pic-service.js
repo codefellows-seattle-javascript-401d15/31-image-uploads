@@ -48,7 +48,7 @@ function picService($q, $log, $http, Upload, authService) {
   };
 
   service.deletePic = function(gallery, pic) {
-    $log.debug('#picService.uploadPic');
+    $log.debug('#picService.deletePic');
 
     return authService.getToken()
     .then(token => {

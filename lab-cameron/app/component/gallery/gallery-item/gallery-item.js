@@ -7,6 +7,7 @@ module.exports = {
   controllerAs: 'galleryItemCtrl',
   controller: [
     '$log',
+    '$rootScope',
     'galleryService',
     GalleryItemController,
   ],
@@ -15,7 +16,7 @@ module.exports = {
   },
 };
 
-function GalleryItemController($log, galleryService) {
+function GalleryItemController($log, $rootScope, galleryService) {
   $log.debug('#GalleryItemController');
 
   this.showEditGallery = false;
