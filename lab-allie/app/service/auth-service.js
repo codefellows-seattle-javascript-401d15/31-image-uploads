@@ -5,7 +5,7 @@ module.exports = [
   '$log',
   '$http',
   '$window',
-  function($q, $log, $http, $window, authService) {
+  function($q, $log, $http, $window) {
     $log.debug('Auth-Service');
     
     let service = {};
@@ -84,6 +84,16 @@ module.exports = [
         $log.error('failure', err.message);
         return $q.reject(err);
       });
+    };
+    
+    service.logout = function() {
+      $log.debug('#logout');
+      
+      $window.localStorage.removeItem('token');
+      
+      token = null;
+      
+      return $q.resolve();
     };
     
     return service;

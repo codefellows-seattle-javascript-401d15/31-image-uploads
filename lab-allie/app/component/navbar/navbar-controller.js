@@ -20,6 +20,15 @@ module.exports = {
             });
           }
         };
+        
+        this.logout = function() {
+          $log.debug('NavbarLogout');
+          this.hideButtons = true;
+          authService.logout()
+          .then(() => {
+            $location.url('/join#login');
+          });
+        };
       };
     },
   ],
