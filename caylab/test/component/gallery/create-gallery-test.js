@@ -5,11 +5,11 @@ const expect = require('chai').expect
 describe('create gallery component', function(){
   beforeEach(done => {
     angular.mock.module('demoApp')
-    angular.mock.inject(($rooScope, $httpBackend, $window, $componentController) => {
+    angular.mock.inject(($rootScope, $window, $componentController, $httpBackend) => {
       this.$rootScope = $rootScope
       this.$httpBackend = $httpBackend
       this.$window = $window
-      this.createGalleryCtrl = $componentController('createGalleryCtrl')
+      this.createGalleryCtrl = $componentController('createGallery')
       done()
     })
   })

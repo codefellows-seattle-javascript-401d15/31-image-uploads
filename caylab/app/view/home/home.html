@@ -11,8 +11,15 @@
   </gallery-item>
   </ul>
 
+  <select
+    name="gallery selection"
+    ng-options="gallery as gallery.name for gallery in homeCtrl.galleries track by gallery._id"
+    ng-model="homeCtrl.currentGallery"></select>
+
   <thumbnail-container
     ng-if="homeCtrl.currentGallery"
-    gallery="homeCtrl.currentGallery">
+    gallery="homeCtrl.currentGallery"
+    currentGallery="homeCtrl.currentGallery"
+    galleries="homeCtrl.galleries">
   </thumbnail-container>
 </section>

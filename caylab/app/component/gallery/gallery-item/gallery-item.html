@@ -1,7 +1,9 @@
 <li>
   <div
   ng-if="!galleryItemCtrl.showEditGallery">
-    <div>
+    <div
+      ng-click="galleryItemCtrl.makeCurrentGallery()"
+      >
       <span>name: {{galleryItemCtrl.gallery.name}}</span>
       <span>description: {{galleryItemCtrl.gallery.desc}}</span>
       <span>id: {{galleryItemCtrl.gallery._id}}</span>

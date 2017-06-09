@@ -5,13 +5,14 @@ module.exports = {
   controllerAs: 'galleryItemCtrl',
   controller: [
     '$log',
+    '$rootScope',
     'galleryService',
-    function($log, galleryService){
+    function($log, $rootScope, galleryService){
       $log.debug('Gallery item in Controller')
 
       this.showEditGallery = false
     }],
   bindings: {
-    gallery: '<'
+    gallery: '<',
   }
 }

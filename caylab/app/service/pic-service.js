@@ -42,28 +42,34 @@ module.exports = [
       })
     }
 
-    service.deletePic = function(galleryId, picId){
+    service.deletePic = (gallery, pic) => {
       $log.debug('picService.deletePic')
 
       return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/gallery/${galleryId}/pic/${picId}`
-        let headers = {
-          Authorization: `Bearer ${token}`,
-          Accept: 'application/json'
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic/${pic._id}`
+        let config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: 'application/json'
+          }
         }
-        return $http.delete(url, headers)
+        return $http.delete(url, config)
       })
-      .then(res => {
-        service.galleries.forEach((ele, index) => {
-          if(ele._id === galleryId) service.galleries.splice(index, 1)
-        })
-        return res
-      })
-      .catch(err => {
-        $log.error(err.message)
-        return $q.reject(err)
-      })
+      .then(
+        () => {
+          $log.log('Picture deleted')
+          for (let i = 0; i < gallery.pics.length; i++) {
+            if(gallery.pics[i]._id === pic._id){
+              gallery.pics.splice(gallery[i], 1)
+            }
+          }
+        },
+        err => {
+          $log.error(err.message)
+          return $q.reject(err)
+        }
+      )
     }
 
     return service
