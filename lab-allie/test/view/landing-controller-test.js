@@ -1,6 +1,6 @@
 'use strict';
 
-fdescribe('Testing the Landing Controller', function() {
+describe('Testing the Landing Controller', function() {
   beforeEach(() => { /* eslint-disable */
     angular.mock.module('routesApp');
     angular.mock.inject(($controller) => {

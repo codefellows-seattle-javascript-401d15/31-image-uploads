@@ -8,7 +8,7 @@ module.exports = {
   },
   controller: [function() {
     this.$onInit = () => {
-      
+      console.log('it worked');
     };
   }],
 };
