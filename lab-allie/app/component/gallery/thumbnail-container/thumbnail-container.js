@@ -9,6 +9,6 @@ module.exports = {
   controller: [function() {
     this.$onInit = () => {
       
-    }
-  }]
+    };
+  }],
 };

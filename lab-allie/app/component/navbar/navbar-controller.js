@@ -3,8 +3,8 @@
 module.exports = {
   template: require('./navbar.html'),
   controllerAs: 'navbarCtrl',
-  controller: ['$log', '$location', '$rootScope', 'authService', 
-    function($log, $location, $rootScope, authService) {
+  controller: ['$log', '$location', 'authService', 
+    function($log, $location, authService) {
       this.$onInit = () => {
         $log.debug('NavbarController');
         

@@ -1,6 +1,6 @@
 'use strict';
 
-fdescribe('Thumbnail Controller', function() {
+describe('Thumbnail Controller', function() {
   beforeEach(() => {  /* eslint-disable */
     angular.mock.module('routesApp');
     angular.mock.inject(($rootScope, $window, $httpBackend, $componentController, picService) => {
@@ -47,10 +47,6 @@ fdescribe('Thumbnail Controller', function() {
     delete this.$window.localStorage.token;
   });
   
-  describe('Default properties', () => {
-    
-  });
-  
   describe('Default functional methods', () => {
     beforeEach(() => {
       this.expectUrl = 'http://localhost:3000/api/gallery/456/pic/123';
@@ -75,3 +71,4 @@ fdescribe('Thumbnail Controller', function() {
     });
   });
 });
+
