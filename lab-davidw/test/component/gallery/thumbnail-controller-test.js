@@ -55,7 +55,7 @@ describe('Thumbnail Controller', function() {
 
   describe('Functional methods', () => {
     beforeEach(done => {
-      this.expectUrl = 'http://localhost:3000/api/gallery/5678/pic/1234';
+      this.expectUrl = `${__API_URL__}/api/gallery/5678/pic/1234`;
       this.expectHeaders = {
         'Authorization': `Bearer ${this.$window.localStorage.token}`,
         'Accept': 'application/json, text/plain, */*',

@@ -41,6 +41,10 @@ describe('Home Controller', function() {
       expect(this.homeCtrl.fetchGalleries).to.be.instanceOf(Function);
       done();
     });
+    it('should have an #$onInit method', done => {
+      expect(this.homeCtrl.$onInit).to.be.instanceOf(Function);
+      done();
+    });
   });
 
   describe('Functional methods', () => {
@@ -60,6 +64,7 @@ describe('Home Controller', function() {
       afterEach(done => {
         this.$httpBackend.flush();
         this.$rootScope.$apply();
+
         done();
       });
 

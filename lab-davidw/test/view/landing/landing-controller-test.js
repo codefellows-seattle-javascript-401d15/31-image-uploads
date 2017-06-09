@@ -41,6 +41,5 @@ describe('Landing Controller', function() {
       expect(this.landingCtrl.showSignup).to.equal(false);
       done();
     });
-    it('should ');
   });
 });
