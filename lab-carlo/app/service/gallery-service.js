@@ -59,7 +59,7 @@ module.exports = [
       })
       .catch(err => {
         $log.error(err.message);
-        return $q.reject(err);
+        $q.reject(err);
       });
     };
 

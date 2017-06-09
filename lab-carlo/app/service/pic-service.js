@@ -13,7 +13,7 @@ module.exports = [
 
     service.uploadPic = function(gallery, pic) {
       $log.debug('#picService.uploadPic');
-
+      $log.log(pic);
       return authService.getToken()
       .then(token => {
         let url = `${__API_URL__}/api/gallery/${gallery._id}/pic`;
@@ -40,7 +40,7 @@ module.exports = [
         },
         err => {
           $log.error(err.message);
-          $q.reject(err);
+          return $q.reject(err);
         }
       );
     };
@@ -68,7 +68,7 @@ module.exports = [
         },
         err => {
           $log.error(err.message);
-          $q.reject(err);
+          return $q.reject(err);
         }
       );
     };
