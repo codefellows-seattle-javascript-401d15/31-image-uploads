@@ -31,6 +31,15 @@ module.exports = [
       }
 
       $rootScope.$on('locationChangeSuccess', this.fetchGalleries)
+      $rootScope.$on('newGalleryCreated', this.fetchGalleries)
+      $rootScope.$on('updateCurrentGallery', (gallery) => {
+        for(let i = 0; i < this.galleries.length; i++) {
+          if(this.galleries[i]._id === gallery._id) {
+            this.currentGallery = this.galleries[i]
+            break
+          }
+        }
+      })
       this.fetchGalleries()
     }
   }
