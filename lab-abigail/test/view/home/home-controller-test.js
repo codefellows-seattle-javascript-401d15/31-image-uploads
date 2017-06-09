@@ -67,15 +67,11 @@ describe('Home Controller', function() {
         this.$httpBackend.expectGET(this.expectUrl, this.expectHeaders)
           .respond(200, this.expectGalleries);
 
-        // this.homeCtrl.fetchGalleries()
         done();
       });
       it('should return an array of galleries', done => {
         this.$httpBackend.whenGET(this.expectUrl, this.expectHeaders)
           .respond(200, this.expectGalleries);
-
-        // this.homeCtrl.fetchGalleries()
-        // NOTE Scott will follow up on this one...
         done();
       });
     });
