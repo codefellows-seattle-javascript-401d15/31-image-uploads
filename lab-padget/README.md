@@ -1,7 +1,7 @@
 # Lab 32: Testing Components
 
 ## Description
-For this lab we fixed a few issues with the existing cfgram app and worked on testing. Editing a gallery no longer requires a page refresh.
+For this lab we fixed a few issues with the existing cfgram app and worked on testing. It no longer requires a page refresh to see the upload image file feature.
 
 * [Class 31](https://github.com/codefellows/seattle-javascript-401d15/tree/master/class-31-image-uploads)
 * [Lab 31](https://github.com/codefellows-seattle-javascript-401d15/31-image-uploads)

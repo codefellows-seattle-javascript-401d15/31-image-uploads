@@ -8,4 +8,9 @@ module.exports = {
   bindings: {
     gallery: '<',
   },
+  controller: [function() {
+    this.$onInit = () => {
+      // 32
+    };
+  }],
 };
