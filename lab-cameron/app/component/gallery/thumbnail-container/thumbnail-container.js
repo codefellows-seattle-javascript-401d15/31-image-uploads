@@ -8,4 +8,12 @@ module.exports = {
   bindings: {
     gallery: '<',
   },
+  // controller: [ThumbnailContainerController],
 };
+
+// function ThumbnailContainerController($log, galleryService) {
+//   this.$onInit = () => {
+//     $log.debug('Thumbnail Container Controller');
+//
+//   }
+// }

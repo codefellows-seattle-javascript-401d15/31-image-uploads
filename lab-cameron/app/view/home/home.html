@@ -7,12 +7,12 @@
       gallery="item">
     </gallery-item>
   </ul>
-  <select>
-    <option
-    ng-model="homeCtrl.currentGallery"
-    ng-repeat="gallery in homeCtrl.galleries"
-    value="{{ gallery }}">{{ gallery.name }}</option>
-  </select>
+  <label for="gallery selection">Select a gallery to upload pics to!</label>
+  <select
+    class="gallery-selector"
+    name="gallery selection"
+    ng-options="item as item.name for item in homeCtrl.galleries track by item._id"
+    ng-model="homeCtrl.currentGallery"></select>
   <thumbnail-container
     ng-if="homeCtrl.currentGallery" gallery="homeCtrl.currentGallery"></thumbnail-container>
 </section>

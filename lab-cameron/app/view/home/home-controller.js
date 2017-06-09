@@ -36,6 +36,6 @@ function HomeController($log, $rootScope, $window, $location, authService, galle
     };
 
     $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
-    return this.fetchGalleries();
+    this.fetchGalleries();
   };
 }
