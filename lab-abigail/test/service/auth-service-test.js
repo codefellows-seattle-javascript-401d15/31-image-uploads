@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
-const expect = require('chai').expect
+const expect = require('chai').expect;
 
 describe('Auth Service', function() {
   beforeEach(done => {
-    angular.mock.module('cfgram');
+    angular.mock.module('cfgram')
     angular.mock.inject(($httpBackend, $window, $rootScope, authService) => {
       this.$httpBackend = $httpBackend;
       this.$window = $window;
@@ -15,7 +15,7 @@ describe('Auth Service', function() {
   });
 
   describe('authService.getToken', () => {
-    it('should return a token', done => {
+    it('shoul return a token', done => {
       this.authService.token = null;
       this.$window.localStorage.setItem('token', 'test token');
 
