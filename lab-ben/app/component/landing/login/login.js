@@ -11,13 +11,6 @@ module.exports = {
 function LoginController($log, $window, $location, authService) {
   this.$onInit = () => {
     $log.debug('LoginController');
-    if(!$window.localStorage.token) {
-
-      authService.getToken().then(
-        () => $location.url('/home'),
-        () => $location.url('/signup')
-      );
-    }
 
     this.login = function() {
       $log.log('loginCtrl.login');
