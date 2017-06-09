@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 
-describe('Thumbnail Controller', function() {
+describe('Thumbnail Container Controller', function() {
   beforeEach(done => {
     angular.mock.module('cfgram');
     angular.mock.inject(($rootScope, $window, $httpBackend, $componentController, picService) => {
