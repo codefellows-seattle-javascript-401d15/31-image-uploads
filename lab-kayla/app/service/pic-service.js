@@ -29,7 +29,7 @@ module.exports = [
         })
       })
       .then(res => {
-        gallery.pics.push(res.data)
+        gallery.pic.push(res.data)
         return res.data
       },
       err => {
@@ -37,8 +37,8 @@ module.exports = [
         $q.reject(err)
       })
     }
-    service.deletPic = (gallery, pic) => {
-      $log.debug('#picService.deletPic')
+    service.deletePic = (gallery, pic) => {
+      $log.debug('#picService.deletePic')
 
       return authService.getToken()
       .then(token => {

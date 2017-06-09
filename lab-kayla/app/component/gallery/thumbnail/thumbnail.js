@@ -17,9 +17,9 @@ module.exports = {
         $log.debug('thumbnailCtrl')
 
         this.deletePic = () => {
-          $log.debug('#thumbnailCtrl.deletPic')
+          $log.debug('#thumbnailCtrl.deletePic')
 
-          picService.deletPic(this.gallery, this.pic)
+          picService.deletePic(this.gallery, this.pic)
         }
       }
     }
