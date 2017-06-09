@@ -1,16 +1,14 @@
-
 const angular = require('angular');
 const expect = require('chai').expect;
 
 describe('Create Gallery Component', function () {
-
   beforeEach(done => {
     angular.mock.module('cfgram');
     angular.mock.inject(($rootScope, $httpBackend, $window, $componentController) => {
       this.$rootScope = $rootScope;
       this.$httpBackend = $httpBackend;
       this.$window = $window;
-      this.createGalleryCtrl = $componentController('createGallery') //controller as syntax
+      this.createGalleryCtrl = $componentController('createGallery'); //controller as syntax
       done();
     });
   });
@@ -20,7 +18,6 @@ describe('Create Gallery Component', function () {
     this.$window.localStorage.setItem('token', 'test token'); //before each must be called so window object can be created
     done();
   });
-
 
   afterEach(done => {
     this.$window.localStorage.removeItem('token');
@@ -38,17 +35,14 @@ describe('Create Gallery Component', function () {
         'Content-Type' : 'application/json',
         Authorization: `Bearer ${this.$window.localStorage.token}`,
       };
-
       let expectGallery = {
         name: 'gallery one',
         desc: 'description one',
       };
-
       this.$httpBackend.expectPOST(expectUrl, expectGallery, expectHeaders)
       .respond(200, expectGallery);
       this.createGalleryCtrl.gallery = expectGallery;
       expect(this.createGalleryCtrl.createGallery).to.not.throw();
-
       done();
     });
   });
