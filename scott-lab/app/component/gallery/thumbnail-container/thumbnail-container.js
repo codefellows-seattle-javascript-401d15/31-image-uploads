@@ -7,5 +7,10 @@ module.exports = {
   controllerAs: 'thumbnailContainerCtrl',
   bindings: {
     gallery: '<'
-  }
+  },
+  controller: [function() {
+    this.$onInit = () => {
+
+    }
+  }]
 }
