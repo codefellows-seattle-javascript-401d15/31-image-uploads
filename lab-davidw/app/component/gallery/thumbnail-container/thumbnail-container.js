@@ -1,6 +1,6 @@
 'use strict';
 
-// require('./_thumbnail-container.scss');
+require('./_thumbnail-container.scss');
 
 module.exports = {
   template: require('./thumbnail-container.html'),
@@ -8,4 +8,9 @@ module.exports = {
   bindings: {
     gallery: '<',
   },
+  controller: [function() {
+    this.$onInit = () => {
+
+    };
+  }],
 };

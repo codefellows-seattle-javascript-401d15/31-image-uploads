@@ -31,6 +31,7 @@ module.exports = [
       };
 
       $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
+      $rootScope.$on('newGalleryCreated', this.fetchGalleries);
       return this.fetchGalleries();
     };
   },

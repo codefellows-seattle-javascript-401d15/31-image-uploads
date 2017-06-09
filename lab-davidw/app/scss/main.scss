@@ -101,12 +101,30 @@ footer {
 
 // :::: app styles ::::
 
+.gallery-list {
+  font-size: $font-size-primary * 1.5;
+  text-align: justify;
+  float: left;
+}
+
 .input-std {
   @include bubble;
   width: $box-std + 10%;
   margin: $gutter-std / 2;
   padding: 2%;
   border: none;
+}
+
+.btn-left {
+margin: .5em;
+font-size: $font-size-primary;
+width: $box-std / 3;
+padding: 2% 0;
+color: $white;
+background: $brand-primary;
+@include bubble;
+cursor: pointer;
+transition: 350ms all;
 }
 
 .btn-std {
