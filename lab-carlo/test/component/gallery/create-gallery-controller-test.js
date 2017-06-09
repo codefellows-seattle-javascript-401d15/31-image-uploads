@@ -2,23 +2,18 @@
 
 const expect = require('chai').expect;
 
-describe('Thumbnail Controller', function() {
+describe('Create Gallery Controller', function() {
   beforeEach(done => {
     angular.mock.module('cfgram');
-    angular.mock.inject(($rootScope, $window, $httpBackend, $componentController, picService) => {
+    angular.mock.inject(($rootScope, $window, $httpBackend, $componentController, galleryService) => {
       this.$rootScope = $rootScope;
       this.$window = $window;
       this.$httpBackend = $httpBackend;
       this.$componentController = $componentController;
-      this.picService = picService;
+      this.galleryService = galleryService;
 
       this.mockBindings = {
-        pic: {
-          name: 'one',
-          desc: 'one',
-          file: 'fileOne',
-          _id: '1234'
-        },
+
         gallery: {
           name: 'galleryOne',
           desc: 'galleryOne',
@@ -29,29 +24,29 @@ describe('Thumbnail Controller', function() {
 
       this.$window.localStorage.token = 'test token';
       this.scope = this.$rootScope.$new();
-      this.thumbnailCtrl = this.$componentController(
-        'thumbnail',
+      this.createGalleryCtrl = this.$componentController(
+        'createGallery',
         {
           scope: this.scope,
-          picService: this.picService
+          galleryService: this.galleryService
         },
         this.mockBindings
       );
-      this.thumbnailCtrl.$onInit();
+      this.createGalleryCtrl.$onInit();
 
       done();
     });
   });
 
   afterEach(done => {
-    delete this.thumbnailCtrl;
+    delete this.createGalleryCtrl;
     delete this.$window.localStorage.token;
     done();
   });
 
   describe('Functional methods', () => {
     beforeEach(done => {
-      this.expectUrl = 'http://localhost:3000/api/gallery/5678/pic/1234';
+      this.expectUrl = 'http://localhost:3000/api/gallery/5678';
       this.expectHeaders = {
         'Authorization': `Bearer ${this.$window.localStorage.token}`,
         'Accept': 'application/json, text/plain, */*'
@@ -59,17 +54,17 @@ describe('Thumbnail Controller', function() {
       done();
     });
 
-    afterEach(done => {
+    after(done => {
       this.$rootScope.$apply();
       done();
     });
 
-    describe('#thumbnailCtrl.deletePic', () => {
-      it('should accept a valid DELETE request', done => {
-        this.$httpBackend.expectDELETE(this.expectUrl, this.expectHeaders)
-          .respond(204);
+    describe('#createGalleryCtrl.createGallery', () => {
+      it('should accept a valid POST request', done => {
+        this.$httpBackend.expectPOST(this.expectUrl, this.expectHeaders)
+          .respond(201);
 
-        this.thumbnailCtrl.deletePic();
+        this.createGalleryCtrl.createGallery();
         done();
       });
     });

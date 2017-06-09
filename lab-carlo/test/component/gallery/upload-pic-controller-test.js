@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 
-describe('Thumbnail Controller', function() {
+describe('Upload Pic Controller', function() {
   beforeEach(done => {
     angular.mock.module('cfgram');
     angular.mock.inject(($rootScope, $window, $httpBackend, $componentController, picService) => {
@@ -29,22 +29,22 @@ describe('Thumbnail Controller', function() {
 
       this.$window.localStorage.token = 'test token';
       this.scope = this.$rootScope.$new();
-      this.thumbnailCtrl = this.$componentController(
-        'thumbnail',
+      this.uploadPicCtrl = this.$componentController(
+        'uploadPic',
         {
           scope: this.scope,
           picService: this.picService
         },
         this.mockBindings
       );
-      this.thumbnailCtrl.$onInit();
+      this.uploadPicCtrl.$onInit();
 
       done();
     });
   });
 
   afterEach(done => {
-    delete this.thumbnailCtrl;
+    delete this.uploadPicCtrl;
     delete this.$window.localStorage.token;
     done();
   });
@@ -59,17 +59,17 @@ describe('Thumbnail Controller', function() {
       done();
     });
 
-    afterEach(done => {
+    after(done => {
       this.$rootScope.$apply();
       done();
     });
 
-    describe('#thumbnailCtrl.deletePic', () => {
-      it('should accept a valid DELETE request', done => {
-        this.$httpBackend.expectDELETE(this.expectUrl, this.expectHeaders)
-          .respond(204);
+    describe('#uploadPicCtrl.uploadPic', () => {
+      it('should accept a valid POST request', done => {
+        this.$httpBackend.expectPOST(this.expectUrl, this.expectHeaders)
+          .respond(201);
 
-        this.thumbnailCtrl.deletePic();
+        this.uploadPicCtrl.uploadPic();
         done();
       });
     });

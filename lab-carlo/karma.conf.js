@@ -7,8 +7,11 @@ module.exports = function(config) {
   config.set({
     webpack,
     basePath: '',
-    frameworks: ['jasmine'],
+    frameworks: ['mocha'],
     files: [
+      'node_modules/babel-polyfill/dist/polyfill.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
       'app/entry.js',
       'test/**/*-test.js'
     ],
@@ -16,15 +19,19 @@ module.exports = function(config) {
     ],
     preprocessors: {
       'app/entry.js': ['webpack'],
-      'test/**/*-test.js': ['webpack'],
+      'test/**/*-test.js': ['webpack', 'coverage'],
     },
-    reporters: ['progress'],
+    coverageReporter: {
+      type: 'html',
+      dir: 'coverage/',
+    },
+    reporters: ['mocha', 'coverage'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: false,
+    logLevel: config.LOG_DISABLE,
+    autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: true,
+    singleRun: false,
     concurrency: Infinity
   });
 };

@@ -11,16 +11,16 @@ module.exports = {
   },
   controller: ['$log', 'picService', function($log, picService) {
     $log.debug('Pic Item Controller');
-
+    this.$onInit = () => {
     // this.showEditGallery = false;
 
-    this.deletePic = () => {
+      this.deletePic = () => {
       picService.deletePic(this.gallery, this.pic)
       .then(
         (res) => $log.log(`${res.status} deleted the thing`),
         err => $log.error(err)
       );
     };
-
+    };
   }],
 };
