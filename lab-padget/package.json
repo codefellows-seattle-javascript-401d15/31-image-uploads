@@ -1,7 +1,7 @@
 {
   "name": "lab-padget",
-  "version": "0.1.0",
-  "description": "Lab 31",
+  "version": "0.1.1",
+  "description": "Lab 32",
   "main": "karma.conf.js",
   "scripts": {
     "build": "webpack",
@@ -15,7 +15,7 @@
   },
   "keywords": [
     "lab",
-    "31"
+    "32"
   ],
   "author": "Michael",
   "license": "MIT",

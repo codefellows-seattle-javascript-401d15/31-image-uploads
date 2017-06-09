@@ -1,13 +1,13 @@
-# Lab 31: Image Uploads
+# Lab 32: Testing Components
 
 ## Description
-For this lab we added image upload functionality to the existing cfgram app. An uploaded image is added to the gallery of pictures. An image icon shows the image upload was successful. A picture can also be deleted.
+For this lab we fixed a few issues with the existing cfgram app and worked on testing. Editing a gallery no longer requires a page refresh.
 
 * [Class 31](https://github.com/codefellows/seattle-javascript-401d15/tree/master/class-31-image-uploads)
 * [Lab 31](https://github.com/codefellows-seattle-javascript-401d15/31-image-uploads)
 
 ## Version
-* 0.1.0
+* 0.1.1
 
 ## Installation
 Please visit the following pages for how to install your project locally.
