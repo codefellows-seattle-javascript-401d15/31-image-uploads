@@ -18,7 +18,6 @@ describe('home controller', function(){
 
   afterEach(() => {
     this.$window.localStorage.removeItem('token');
-    this.$httpBackend.flush();
     this.$rootScope.$apply();
   });
 
@@ -40,6 +39,7 @@ describe('home controller', function(){
       this.homeCtrl.$onInit();
 
       expect(this.homeCtrl.title).toEqual('Home Title');
+      this.$httpBackend.flush();
     });
   });
 });

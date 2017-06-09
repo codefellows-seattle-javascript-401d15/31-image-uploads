@@ -30,28 +30,28 @@ describe('Auth service', function(){
 
   });
 
-  describe('#authService.signup', () => {
-    it('should make a valid post request', () => {
-      this.authService.token = null;
-      let expectUrl = `${__API_URL__}/api/signup`;
-      let expectHeaders = {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      };
-      let expectUser = {
-        username: 'testuser',
-        password: '1234567890',
-        email: 'test@test.com',
-      };
-
-      this.$httpBackend.expectPOST(expectUrl, expectUser, expectHeaders)
-      .respond(200, 'test token');
-
-      let req = this.authService.signup(expectUser);
-      expect(req).not.toThrow();
-      this.$httpBackend.flush();
-    });
-  });
+  // describe('#authService.signup', () => {
+  //   it('should make a valid post request', () => {
+  //     this.authService.token = null;
+  //     let expectUrl = `${__API_URL__}/api/signup`;
+  //     let expectHeaders = {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //     };
+  //     let expectUser = {
+  //       username: 'testuser',
+  //       password: '1234567890',
+  //       email: 'test@test.com',
+  //     };
+  //
+  //     this.$httpBackend.expectPOST(expectUrl, expectUser, expectHeaders)
+  //     .respond(200, 'test token');
+  //
+  //     let req = this.authService.signup(expectUser);
+  //     expect(req).not.toThrow();
+  //     this.$httpBackend.flush();
+  //   });
+  // });
 
   // describe('#authService.login', () => {
   //
