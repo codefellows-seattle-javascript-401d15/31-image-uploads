@@ -1,7 +1,7 @@
 'use strict';
 const expect = require('chai').expect;
 
-describe.only('Gallery Item Component', function(){
+describe('Gallery Item Component', function(){
   beforeEach(() => {
     angular.mock.module('cfgram');
     angular.mock.inject(($rootScope, $componentController, $httpBackend, authService) => {

@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 
-describe.only('Home Controller', function() {
+describe('Home Controller', function() {
   beforeEach(done => {
     angular.mock.module('cfgram');
     angular.mock.inject(($rootScope, $window, $httpBackend, $controller, authService) => {
