@@ -13,10 +13,13 @@ module.exports = {
     '$log',
     'picService',
     function($log, picService) {
-      $log.debug('thumbnail Controller');
+      this.$onInit = () => {
 
-      this.deletePic = function() {
-        picService.deletePic(this.gallery, this.pic._id);
+        $log.debug('thumbnail Controller');
+
+        this.deletePic = function() {
+          picService.deletePic(this.gallery, this.pic._id);
+        };
       };
     },
   ],

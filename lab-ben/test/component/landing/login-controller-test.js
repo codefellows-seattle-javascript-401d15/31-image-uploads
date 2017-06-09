@@ -14,14 +14,14 @@ describe('Login Component Controller', function() {
 
       this.scope = this.$rootScope.$new();
       this.loginCtrl = this.$componentController(
-        'LandingController',
+        'login',
         {
           scope: this.scope,
           authService: this.authService,
         }
       );
 
-      this.landingCtrl.$onInit();
+      this.loginCtrl.$onInit();
       done();
     });
   });
@@ -42,18 +42,18 @@ describe('Login Component Controller', function() {
         },
       };
       done();
+    });
 
-      afterEach(done => {
-        this.$httpBackend.flush();
-        this.$rootScope.$apply();
+    afterEach(done => {
+      this.$rootScope.$apply();
+      done();
+    });
+
+    describe('#login', () => {
+      it('should accept a valid GET request', done => {
+        this.$httpBackend.expectGET(this.expectUrl, this.expectConfig)
+        .respond(200);
         done();
-      });
-
-      describe('#login', () => {
-        it('should accept a valid GET request', () => {
-          this.$httpBackend.expectGET(this.expectUrl, this.expectConfig)
-          .respond(200, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IjljMDJmMzljOWM4MzU1YmViNzE4YjgwZDZlMjg1OGI5NDUyZGM0ZWZkNDU2ZWRkNGQ2NWI1ZWJmOGQ0Mzc3NTciLCJpYXQiOjE0OTcwMzEyMDN9.L5wBaTV6dHzCvUem61FtMTwHhzPHnGmDqTZqRDtyA6M');
-        });
       });
     });
   });
