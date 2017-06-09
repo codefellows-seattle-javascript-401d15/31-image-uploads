@@ -27,7 +27,7 @@ describe('Gallery Controller', function() {
   });
 
   afterEach(done => {
-    delete this.homeCtrl;
+    delete this.galleryCtrl;
     delete this.$window.localStorage.token;
     done();
   });
