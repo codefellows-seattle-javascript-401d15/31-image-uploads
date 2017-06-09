@@ -3,10 +3,7 @@
 fdescribe('Testing the Landing Controller', function() {
   beforeEach(() => { /* eslint-disable */
     angular.mock.module('routesApp');
-    angular.mock.inject(($location, $controller) => {
-      // this.$rootScope = $rootScope;
-      // this.$window = $window;
-      this.$location = $location;
+    angular.mock.inject(($controller) => {
       this.landingCtrl = new $controller('LandingController');
       this.landingCtrl.$onInit();
     });
