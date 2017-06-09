@@ -47,4 +47,29 @@ describe('Gallery Service', function() {
       done();
     });
   });
+
+  describe('#fetchGallery.fetchGalleries()', () => {
+    it('should make a valid POST request for all galleries', done => {
+      let expectUrl = 'http://localhost:3000/api/gallery';
+      let expectHeaders = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.$window.localStorage.token}`,
+      };
+
+      let expectGallery = {
+        name: 'gallery one',
+        desc: 'description one',
+      };
+
+      this.$httpBackend.expectPOST(expectUrl, expectGallery, expectHeaders).respond(200, expectGallery);
+      this.createGalleryCtrl.gallery = expectGallery;
+
+      expect(this.fetchGalleryCtrl.fetchGalleries).to.not.throw();
+
+      this.$httpBackend.flush();
+      this.$rootScope.$apply();
+      done();
+    });
+  });
 });

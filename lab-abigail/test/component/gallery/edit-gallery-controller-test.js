@@ -43,7 +43,7 @@ describe('Edit Gallery Component', function() {
           name: 'test name',
           desc: 'test description',
           pics: [],
-        }
+        },
       };
 
       let expectUrl = 'http://localhost:3000/api/gallery/12345';
