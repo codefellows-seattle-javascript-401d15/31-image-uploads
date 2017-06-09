@@ -19,10 +19,10 @@ module.exports = [
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            Authorization: `Bearer $(token)`
+            Authorization: `Bearer ${token}`
           }
         }
-        return $http.post(`$(__API_URL__)/api/gallery`, gallery, config)
+        return $http.post(`${__API_URL__}/api/gallery`, gallery, config)
       })
       .then(res => {
         $log.log('gallery created')
@@ -44,10 +44,10 @@ module.exports = [
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            Authorization: `Bearer $(token)`
+            Authorization: `Bearer ${token}`
           }
         }
-        return $http.get(`$(__API_URL__)/api/gallery`, config)
+        return $http.get(`${__API_URL__}/api/gallery`, config)
       })
       .then(res => {
         $log.log('galleries retrieved')
@@ -60,32 +60,32 @@ module.exports = [
       })
     }
 
-      service.updateGallery = (galleryId, gallery) => {
-        $log.debug()
+    service.updateGallery = (galleryId, gallery) => {
+      $log.debug()
 
-        return authService.getToken()
-        .then(token => {
-          let url = `${__API_URL__}/api/gallery/${galleryId}`
-          let config = {
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${token}`
-            }
+      return authService.getToken()
+      .then(token => {
+        let url = `${__API_URL__}/api/gallery/${galleryId}`
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
           }
-          return $http.put(url, gallery, config)
+        }
+        return $http.put(url, gallery, config)
+      })
+      .then(res => {
+        service.galleries.filter((ele, idx) => {
+          if(ele._id === res.data._id) service.galleries[idx] = res.data
         })
-        .then(res => {
-          service.galleries.filter((ele, idx) => {
-            if(ele._id === res.data._id) service.galleries[idx] = res.data
-          })
-          return res.data
-        })
-        .catch(err => {
-          $log.error(err.message)
-          return $q.reject(err)
-        })
-      }
+        return res.data
+      })
+      .catch(err => {
+        $log.error(err.message)
+        return $q.reject(err)
+      })
+    }
     return service
   }
 ]

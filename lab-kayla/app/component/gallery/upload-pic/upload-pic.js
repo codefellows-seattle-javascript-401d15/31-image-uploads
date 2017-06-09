@@ -18,7 +18,7 @@ module.exports = {
           picService.uploadPic(this.gallery, this.pic)
           .then(() => {
             this.pic.name = null
-            this.pic.discription = null
+            this.pic.description = null
             this.pic.file = null
           },
           err => $log.error(err)

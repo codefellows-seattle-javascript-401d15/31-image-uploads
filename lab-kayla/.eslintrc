@@ -1,5 +1,5 @@
 {
-  "extends": "eslint:recommended",
+  # "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaVersion": 6,
     "ecmaFeatures": {"impliedStrict": true}
@@ -11,7 +11,7 @@
     "es6": true
   },
   "globals": {
-    "__API_URI__": false,
+    "__API_URI__": true,
     "__DEBUG__": false
     },
   "rules": {

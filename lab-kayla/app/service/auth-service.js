@@ -5,7 +5,7 @@ module.exports = [
   '$log',
   '$http',
   '$window',
-  function($q, $log, $http, $window, authService) {
+  function($q, $log, $http, $window, authService) { // eslint-disable-line
     $log.debug('authService')
 
     let service = {}
@@ -41,7 +41,7 @@ module.exports = [
     service.signup = function(user) {
       $log.debug('authService.signup()')
 
-      let url = `${__API_URL__}/api/signup`
+      let url = `${__API_URL__}/api/signup` // eslint-disable-line
       let config = {
         headers: {
           'Content-Type': 'application/json',
@@ -62,8 +62,8 @@ module.exports = [
     service.login = function(user) {
       $log.debug('authService.login()')
 
-      let url = `${__API_URL__}/api/login`
-      let base64 = $window.btoa(`${user.userName}:${user.password}`)
+      let url = `${__API_URL__}/api/login` // eslint-disable-line
+      let base64 = $window.btoa(`${user.username}:${user.password}`)
       let config = {
         headers: {
           Accept: 'application/json',
