@@ -10,7 +10,6 @@ describe('Navbar controller', function() {
       this.$location = $location;
       this.authService = authService;
       this.$componentController = $componentController;
-      // this.navbarCtrl = new $componentController('NavbarController');
       this.$window.localStorage.setItem('token', 'test token');
       
       this.navbarCtrl = this.$componentController(
