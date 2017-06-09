@@ -44,5 +44,4 @@ describe('Create gallery component', function() {
       expect(this.createGalleryCtrl.createGallery).not.toThrow();
     });
   })
-  
 });

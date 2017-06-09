@@ -10,25 +10,12 @@ describe('Testing the Home Controller', function() {
       this.homeCtrl = new $controller('HomeController');
       this.galleryService = galleryService;
       this.$window.localStorage.setItem('token', 'test token');
-      this.homeCtrl.$onInit();
-
     });
   });
   
   afterEach(() => {
     this.$window.localStorage.removeItem('token');
   });
-  
-  it('should have a title property', () => {
-    expect(this.homeCtrl.title).toEqual('Welcome to cfGram!');
-    expect(this.homeCtrl.title).toEqual(jasmine.any(String));
-  });
-  
-  it('should have an empty galleries array', () => {
-    expect(this.homeCtrl.galleries).toEqual([]);
-    expect(this.homeCtrl.galleries).toEqual(jasmine.any(Array));
-  });
-  
   
   describe('should execute the fetchGalleries method', () => {
     beforeEach(() => {      
@@ -60,13 +47,28 @@ describe('Testing the Home Controller', function() {
     
     it('should make a valid GET request', () => {
       this.$httpBackend.expectGET(this.expectUrl, this.expectHeaders).respond(200);
-      this.homeCtrl.fetchGalleries();
+      this.homeCtrl.$onInit();
     });
 
     it('should fetch the galleries', () => {
-      this.$httpBackend.whenGET(this.expectUrl, this.expectHeaders).respond(200, this.expectGalleries)
+      this.$httpBackend.whenGET(this.expectUrl, this.expectHeaders).respond(200, this.expectGalleries);
+      this.homeCtrl.$onInit();
+    });    
+  });
+  
+  describe('Tesing the initial properties', () => {
+    beforeEach(() => {
+      this.homeCtrl.$onInit();
     });
-
-    // expect(this.homeCtrl.fetchGalleries).not.toThrow();
+    
+    it('should have a title property', () => {
+      expect(this.homeCtrl.title).toEqual('Welcome to cfGram!');
+      expect(this.homeCtrl.title).toEqual(jasmine.any(String));
+    });
+    
+    it('should have an empty galleries array', () => {
+      expect(this.homeCtrl.galleries).toEqual([]);
+      expect(this.homeCtrl.galleries).toEqual(jasmine.any(Array));
+    });
   });
 });

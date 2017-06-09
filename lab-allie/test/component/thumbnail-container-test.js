@@ -1,6 +1,6 @@
 'use strict';
 
-fdescribe('Testing the Thumbnail Container Controller', function() { /* eslint-disable */
+describe('Testing the Thumbnail Container Controller', function() { /* eslint-disable */
   angular.mock.module('routesApp');
   angular.mock.inject(($componentController) => {
     this.$componentController = $componentController;
