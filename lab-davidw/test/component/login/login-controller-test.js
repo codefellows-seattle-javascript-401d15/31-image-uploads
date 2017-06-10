@@ -21,6 +21,14 @@ describe('Login Controller', function() {
 
       this.loginCtrl.$onInit();
       this.$window.localStorage.token = '1234';
+
+      this.mockBindings = {
+        user: {
+          username: 'user',
+          email: 'test@test.com',
+          password: 'Pass12345',
+        },
+      };
       done();
     });
   });
@@ -52,6 +60,12 @@ describe('Login Controller', function() {
         this.$httpBackend.expectGET(this.expectUrl, this.expectConfig)
       .respond(200);
 
+        done();
+      });
+      it('should login a valid user', done=> {
+        this.$httpBackend.expectGET(this.expectConfig, this.expectConfig, this.user)
+      .respond(200, expect.token);
+      
         done();
       });
     });

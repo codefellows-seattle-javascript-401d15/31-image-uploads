@@ -9,19 +9,24 @@ describe('Signup Controller', function() {
       this.$rootScope = $rootScope;
       this.$window = $window;
       this.$httpBackend = $httpBackend;
-      // this.componentController = $componentController;
       this.authService = authService;
-      this.signupCtrl = $componentController('signup');
+      // this.$window.localStorage.token = 'test token';
+      this.signupCtrl = $componentController(
+        'signup',
+        {
+          scope: this.scope,
+          authService: this.authService,
+        }
+      );
 
       this.mockBindings = {
         user: {
-          name: 'test',
+          username: 'test',
           email: 'test@test.com',
-          password: 'pass1234',
+          password: 'Pass12345',
         },
       };
       this.signupCtrl.$onInit();
-
       done();
     });
   });
@@ -39,7 +44,7 @@ describe('Signup Controller', function() {
       done();
     });
 
-    it('should be the string: Welcome to Signup', done => {
+    it('should be the string: Welcome to signup page!', done => {
 
       expect(this.signupCtrl.title).to.equal('Welcome to the signup page!');
       done();
@@ -50,24 +55,24 @@ describe('Signup Controller', function() {
     beforeEach( done => {
       this.expectUrl = `${__API_URL__}/api/signup`;
       this.expectHeaders = {
-        'Authorization': `Bearer ${this.$window.localStorage.token}`,
-        'Accept': 'application/json, text/plain, */*',
-      };
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${this.mockBindings.user}`,
+      },
+
       done();
     });
 
     afterEach(done => {
-      this.$httpBackend.flush();
       this.$rootScope.$apply();
       done();
     });
 
-    describe('#signupCtrl.signup', () => {
-      it('should accept a valid POST request', done => {
-        this.$httpBackend.expectPOST(this.expectUrl, this.expectHeaders)
-      .respond(200);
+    describe('#signup', () => {
+      it('should sign up a valid user', done => {
 
-        this.signupCtrl.signup(this.user);
+        this.$httpBackend.expectPOST(this.expectUrl, this.expectHeaders)
+      .respond(200, this.$window.localStorage.token);
+
         done();
       });
     });

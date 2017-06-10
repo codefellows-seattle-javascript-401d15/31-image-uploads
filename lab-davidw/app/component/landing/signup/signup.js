@@ -24,6 +24,7 @@ module.exports = {
         this.title = 'Welcome to the signup page!';
 
         this.signup = function(user) {
+          console.log('user', user);
           $log.debug('signupCtrl.signup()');
 
           authService.signup(user)

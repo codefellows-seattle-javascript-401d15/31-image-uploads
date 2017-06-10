@@ -48,7 +48,7 @@ describe('Home Controller', function() {
   });
 
   describe('Functional methods', () => {
-    describe('#HomeController.fetchGalleries', () => {
+    describe('#fetchGalleries', () => {
       beforeEach(done => {
         this.expectUrl = 'http://localhost:3000/api/gallery';
         this.expectHeaders = {
