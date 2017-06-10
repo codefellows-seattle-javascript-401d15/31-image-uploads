@@ -29,7 +29,7 @@ module.exports = [
         })
       })
       .then(res => {
-        gallery.pic.push(res.data)
+        gallery.pics.push(res.data)
         return res.data
       },
       err => {
@@ -56,8 +56,8 @@ module.exports = [
           $log.log('deleted pic')
 
           for(let i = 0; i < gallery.pics.length; i++) {
-            if(gallery.pics[i]._id = pic._id) {
-              gallery.pics.splice(i, 1)
+            if(gallery.pics[i]._id === pic._id) {
+              gallery.pics.splice(gallery[i], 1)
               break
             }
           }
