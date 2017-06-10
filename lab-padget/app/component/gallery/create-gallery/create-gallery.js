@@ -7,7 +7,6 @@ module.exports = {
   controllerAs: 'createGalleryCtrl',
   controller: [
     '$log',
-    // '$rootScope',
     'galleryService',
     function($log, galleryService) {
       this.$onInit = () => {
@@ -21,7 +20,6 @@ module.exports = {
               let res = this.gallery;
               this.gallery.name = null;
               this.gallery.desc = null;
-              // $rootScope.$emit('newGalleryCreated');
               return res;
             },
             err => $log.error(err)

@@ -31,7 +31,7 @@ module.exports = [
       };
 
       $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
-      // updateCurrentGallery used for select galleries
+
       $rootScope.$on('updateCurrentGallery', (eve, galleryId) => {
         for(let i = 0; i < this.galleries.length; i++) {
           if(this.galleries[i]._id === galleryId) {
