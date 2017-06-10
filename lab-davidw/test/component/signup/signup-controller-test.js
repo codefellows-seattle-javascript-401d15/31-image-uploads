@@ -10,7 +10,6 @@ describe('Signup Controller', function() {
       this.$window = $window;
       this.$httpBackend = $httpBackend;
       this.authService = authService;
-      // this.$window.localStorage.token = 'test token';
       this.signupCtrl = $componentController(
         'signup',
         {

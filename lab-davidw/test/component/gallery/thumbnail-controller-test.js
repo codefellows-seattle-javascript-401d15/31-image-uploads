@@ -46,11 +46,12 @@ describe('Thumbnail Controller', function() {
   afterEach(done => {
     delete this.thumbnailCtrl;
     delete this.$window.localStorage.token;
+
     done();
   });
 
   describe('Default properties', () => {
-
+  // TODO: test default properties
   });
 
   describe('Functional methods', () => {
