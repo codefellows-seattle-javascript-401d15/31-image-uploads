@@ -1,14 +1,13 @@
 'use strict';
 
 require('./_landing.scss');
-
+/* eslint-disable */
 module.exports = [
   '$log',
   '$location',
   '$rootScope',
   'authService',
   function($log, $location, authService) {
-    console.log(authService);
     this.$onInit = () => {
       let url = $location.url();
       $log.log('url', url);

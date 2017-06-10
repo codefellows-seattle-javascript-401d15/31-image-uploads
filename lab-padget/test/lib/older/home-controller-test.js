@@ -1,7 +1,8 @@
 'use strict';
 
-const angular = require('angular');
-require('angular-mocks');
+const expect = require('chai').expect;
+// const angular = require('angular');
+// require('angular-mocks');
 
 describe('testing controller', function(){
   beforeEach(() => {
@@ -11,7 +12,7 @@ describe('testing controller', function(){
   afterEach(() => this.$rootScope.$apply());
 
   it('should have a title', () => {
-    expect(this.title).toEqual('Signup');
+    expect(this.title).toEqual('Home');
   });
 
 });

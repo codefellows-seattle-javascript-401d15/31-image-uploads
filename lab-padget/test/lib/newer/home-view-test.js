@@ -1,8 +1,8 @@
 'use strict';
 
-const angular = require('angular');
-require('angular-mocks');
 const expect = require('chai').expect;
+// const angular = require('angular');
+// require('angular-mocks');
 
 describe('Home Controller', function() {
   beforeEach(done => {

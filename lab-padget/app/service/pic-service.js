@@ -45,30 +45,36 @@ module.exports = [
       );
     };
 
-    service.deletePicFile = (gallery, picId) => {
-      $log.debug('#galleryService.deletePicFile');
+    service.deletePic = (gallery, pic) => {
+      $log.debug('#picService.deletePic');
 
       return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic/${picId}`;
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic/${pic._id}`;
         let config = {
           headers: {
-            Accept: 'application/json',
             Authorization: `Bearer ${token}`,
+            Accept: 'application/json, text/plain, */*',
           },
         };
         return $http.delete(url, config);
       })
-      .then(res => {
-        gallery.pics.forEach((ele, idx) => {
-          if(ele._id === picId) gallery.pics.splice(idx, 1);
-        });
-        return res;
-      })
-      .catch(err => {
-        $log.error(err.message);
-        return $q.reject(err);
-      });
+      .then(
+        () => {
+          $log.log('deleted the pic');
+
+          for(let i = 0; i < gallery.pics.length; i++) {
+            if(gallery.pics[i]._id === pic._id) {
+              gallery.pics.splice(i, 1);
+              break;
+            }
+          }
+        },
+        err => {
+          $log.error(err.message);
+          return $q.reject(err);
+        }
+      );
     };
 
     return service;
