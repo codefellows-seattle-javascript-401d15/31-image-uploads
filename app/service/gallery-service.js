@@ -86,6 +86,33 @@ module.exports = [
         return $q.reject(err);
       });
     };
+
+    service.deleteGallery = (galleryId) => {
+      $log.debug('#galleryService.deleteGallery()');
+      return authservice.getToken()
+      .then(token => {
+        let url = `${__API_URL__}/api/gallery/${galleryId}`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          },
+        };
+        return $http.delete(url, config);
+      })
+      .then(res => {
+        service.galleries.filter((ele, id) => {
+          if (ele._id === galleryId) service.galleries.splice(id, 1);
+        });
+        return res;
+      })
+      .catch(err => {
+        $log.error(err.message);
+        return $q.resolve(err);
+      });
+    };
+
     return service;
   }
 ];
