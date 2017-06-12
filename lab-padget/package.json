@@ -1,7 +1,7 @@
 {
   "name": "lab-padget",
-  "version": "0.1.1",
-  "description": "Lab 32",
+  "version": "0.2.0",
+  "description": "Lab 33",
   "main": "karma.conf.js",
   "scripts": {
     "build": "webpack",
@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mmpadget/29-component-bindings"
+    "url": "https://github.com/mmpadget/31-image-uploads"
   },
   "keywords": [
     "lab",
-    "32"
+    "33"
   ],
   "author": "Michael",
   "license": "MIT",
