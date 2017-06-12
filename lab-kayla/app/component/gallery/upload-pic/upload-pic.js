@@ -11,7 +11,7 @@ module.exports = {
   controller: [
     '$log', 'picService', function($log, picService) {
       this.$onInit = () => {
-        $log.debug('uploadPicController')
+        $log.log('uploadPicController initialized')
         this.pic = {}
 
         this.uploadPic = () => {

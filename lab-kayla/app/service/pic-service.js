@@ -12,11 +12,12 @@ module.exports = [
 
       return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic`
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic`// eslint-line-disable
         let headers = {
           Authorization: `Bearer ${token}`,
           Accept: 'application/json'
         }
+        console.log('token set')
         return Upload.upload({
           url,
           headers,
@@ -30,6 +31,7 @@ module.exports = [
       })
       .then(res => {
         gallery.pics.push(res.data)
+        console.log(gallery);
         return res.data
       },
       err => {
