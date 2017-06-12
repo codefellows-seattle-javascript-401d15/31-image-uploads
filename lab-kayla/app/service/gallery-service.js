@@ -76,7 +76,7 @@ module.exports = [
         return $http.put(url, gallery, config)
       })
       .then(res => {
-        service.galleries.filter((ele, idx) => {
+        service.galleries.forEach((ele, idx) => {
           if(ele._id === res.data._id) service.galleries[idx] = res.data
         })
         return res.data

@@ -5,51 +5,78 @@ const expect = require('chai').expect
 describe('Home Controller', function() {
   beforeEach(done => {
     angular.mock.module('cfgram')
-    angular.mock.inject(($rootScope, $httpBackend, $window, $controller) => {
+    angular.mock.inject(($rootScope, $window, $httpBackend, $controller, galleryService) => {
       this.$rootScope = $rootScope
-      this.scope = this.$rootScope.$new()
-      this.$httpBackend = $httpBackend
       this.$window = $window
-      this.homeCtrl = new $controller('HomeController', {scope: this.scope})
+      this.$httpBackend = $httpBackend
+      this.$controller = $controller
+      this.galleryService = galleryService
+
+      this.scope = this.$rootScope.$new()
+      this.$window.localStorage.token = 'test token'
+      this.homeCtrl = this.$controller(
+        'HomeController',
+        {
+          scope: this.scope,
+          galleryService: this.galleryService
+        }
+      )
+      this.homeCtrl.$onInit()
       done()
     })
   })
 
-  beforeEach(done => {
-    this.$window.localStorage.setItem('token', 'test token')
-    done()
-  })
-
   afterEach(done => {
-    this.$window.localStorage.removeItem('token')
+    delete this.homeCtrl
+    delete this.$window.localStorage.token
     done()
   })
 
-  describe('fetch galleries on page load', () => {
-    it('should make a request to GET all galleries', done => {
-      let expectUrl = 'http://localhost:3000/api/gallery'
-      let expectHeaders = {
-        Accept: 'application/json',
-        Authorization: `Bearer ${this.$window.localStorage.token}`
-      }
+  describe('Default properties', () => {
+    it('should have a galleries array', done => {
+      expect(this.homeCtrl.galleries).to.be.instanceOf(Array)
+      done()
+    })
+    it('should have a #fetchGalleries method', done => {
+      expect(this.homeCtrl.fetchGalleries).to.be.instanceOf(Function)
+      done()
+    })
+  })
 
-      this.$httpBackend.expectGET(expectUrl, expectHeaders).respond(200,
-        {
-          galleries: [
-            {name: 'one', description: 'dOne'},
-            {name: 'two', description: 'dTwo'}
-          ]
+  describe('Functional methods', () => {
+    describe('#HomeController.fetchGalleries', () => {
+      beforeEach(done => {
+        this.expectUrl = 'http://localhost:3000/api/gallery'
+        this.expectHeaders = {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${this.$window.localStorage.token}`
         }
-      )
-
-      this.homeCtrl.$onInit().then(data => {
-        expect(data.galleries[0].name).to.equal('one')
-        expect(data.galleries[1].name).to.equal('two')
+        this.expectGalleries = [
+          {name: 'one', description: 'one', _id: '1234'},
+          {name: 'two', description: 'two', _id: '5678'}
+        ]
+        done()
+      })
+      afterEach(done => {
+        this.$httpBackend.flush()
+        this.$rootScope.$apply()
+        done()
       })
 
-      this.$httpBackend.flush()
-      this.$rootScope.$apply()
-      done()
+      it('should make a valid GET request', done => {
+        this.$httpBackend.expectGET(this.expectUrl, this.expectHeaders)
+          .respond(200, this.expectGalleries)
+
+        // this.homeCtrl.fetchGalleries()
+        done()
+      })
+      it('should return an array of galleries', done => {
+        this.$httpBackend.whenGET(this.expectUrl, this.expectHeaders)
+          .respond(200, this.expectGalleries)
+
+        // this.homeCtrl.fetchGalleries()
+        done()
+      })
     })
   })
 })

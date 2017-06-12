@@ -12,11 +12,12 @@ module.exports = [
 
       return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic`
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic`// eslint-line-disable
         let headers = {
           Authorization: `Bearer ${token}`,
           Accept: 'application/json'
         }
+        console.log('token set')
         return Upload.upload({
           url,
           headers,
@@ -29,7 +30,8 @@ module.exports = [
         })
       })
       .then(res => {
-        gallery.pic.push(res.data)
+        gallery.pics.push(res.data)
+        console.log(gallery);
         return res.data
       },
       err => {
@@ -56,8 +58,8 @@ module.exports = [
           $log.log('deleted pic')
 
           for(let i = 0; i < gallery.pics.length; i++) {
-            if(gallery.pics[i]._id = pic._id) {
-              gallery.pics.splice(i, 1)
+            if(gallery.pics[i]._id === pic._id) {
+              gallery.pics.splice(gallery[i], 1)
               break
             }
           }
