@@ -5,7 +5,7 @@ module.exports = function() {
 
     if(!searchStr) return galleries;
 
-    let createRegExp = new RegExp(`.*${searchStr.toLowerCase().split().join('.*')}.*`);
+    let createRegExp = new RegExp(`.*${searchStr.toLowerCase().split('').join('.*')}.*`);
     return galleries.filter(gal => createRegExp.test(gal.name.toLowerCase()));
 
   };
