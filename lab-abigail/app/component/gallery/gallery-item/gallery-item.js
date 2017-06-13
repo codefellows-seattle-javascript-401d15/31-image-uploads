@@ -6,6 +6,7 @@ module.exports = {
   controller: ['$log', 'galleryService', function($log, galleryService) {
     this.$onInit = () => {
       $log.debug('Delete Gallery Controller');
+      this.dateCreated = this.gallery.created;
       this.deleteGallery = () => {
         galleryService.deleteGallery(this.gallery._id, this.gallery)
         .then(
@@ -25,10 +26,11 @@ module.exports = {
         }
         this.currentGallery = this.galleries[index];
 
+
       };
     };
   }],
-  
+
   bindings: {
     gallery: '<',
   },
