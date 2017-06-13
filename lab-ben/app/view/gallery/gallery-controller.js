@@ -17,7 +17,7 @@ module.exports = [
       );
     }
     this.$onInit = () => {
-      this.title = 'This is where the pictures go';
+      this.title = 'Galleries';
 
       this.galleries = [];
       this.filter=null;
