@@ -1,10 +1,12 @@
 <section class="home-content">
   <h2>Welcome home!</h2>
   <create-gallery></create-gallery>
-  <input ng-model="homeCtrl.gallerySearchTerm" type="text" placeholder="text">
+
+  <h2>Search</h2>
 
   <ul>
-    <gallery-item ng-repeat="item in homeCtrl.galleries | orderBy:'name'" gallery="item"></gallery-item>
+    <input ng-model="homeCtrl.searchTerm" type="text" placeholder="Search">
+    <gallery-item ng-repeat="item in homeCtrl.galleries | gallerySearch: homeCtrl.searchTerm | orderBy:'name'" gallery="item"></gallery-item>
   </ul>
 
   <thumbnail-container ng-if="homeCtrl.currentGallery"  gallery="homeCtrl.currentGallery"></thumbnail-container>
