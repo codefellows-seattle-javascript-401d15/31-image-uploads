@@ -4,12 +4,12 @@
       <span ng-click="galleryItemCtrl.makeCurrentGallery">Name: {{ galleryItemCtrl.gallery.name | uppercase }} | </span>
       <span>Description: {{ galleryItemCtrl.gallery.desc | lowercase }} | </span>
       <span>Gallery Created: {{ galleryItemCtrl.dateCreated | date: 'short' }} | </span>
-      <span>ID: {{ galleryItemCtrl.gallery._id }}</span>
+      <span>ID: {{ galleryItemCtrl.gallery._id | limitTo: 6 }}</span>
     </div>
   </div>
 
   <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
-  <span ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</span>
+  <button ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</button>
   <button ng-click="galleryItemCtrl.deleteGallery()">delete</button>
 
 </li>
