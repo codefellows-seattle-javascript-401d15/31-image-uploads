@@ -2,8 +2,10 @@
   <h2>Welcome to Galleries!</h2>
   <create-gallery></create-gallery>
 
+  <input type="text" ng-model="homeCtrl.galleryFuzzy" value="gallery" placeholder="Search">
+
   <ul>
-    <gallery-item ng-repeat="item in homeCtrl.galleries" gallery="item"></gallery-item>
+    <gallery-item ng-repeat="item in homeCtrl.galleries | customFuzzy : homeCtrl.galleryFuzzy | orderBy: 'id' | limitTo : 5" gallery="item"></gallery-item>
   </ul>
 
   <thumbnail-container ng-if="homeCtrl.currentGallery"  gallery="homeCtrl.currentGallery"></thumbnail-container>
