@@ -3,9 +3,9 @@
   <create-gallery></create-gallery>
   <span>Number of galleries: {{ homeCtrl.galleries.length | number : 0 }}</span>
 
-  <label>search gallery:</label>
+  <br><label class="search-label">search gallery: </label><br>
   <ul>
-    <input ng-model="homeCtrl.searchTerm" type="text" name="gallery search field" value="">
+    <input class="input-search" ng-model="homeCtrl.searchTerm" type="text" name="gallery search field" value="">
     <gallery-item ng-repeat="item in homeCtrl.galleries | fuzzySearch : homeCtrl.searchTerm" gallery="item"></gallery-item>
   </ul>
 
