@@ -4,7 +4,7 @@
 
   <ul>
     <gallery-item
-      ng-repeat="item in homeCtrl.galleries"
+      ng-repeat="item in homeCtrl.galleries | orderBy: '-name'"
       gallery="item"
       currentGallery="homeCtrl.currentGallery"
       galleries="homeCtrl.galleries">
