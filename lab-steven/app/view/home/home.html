@@ -5,8 +5,10 @@
 
 
   <ul>
-    <gallery-item ng-repeat="gallery in homeCtrl.galleries | orderBy : 'name'" gallery="gallery"></gallery-item>
+    <gallery-item ng-repeat="gallery in homeCtrl.galleries | orderBy : 'name' | fuzzySearch : homeCtrl.searchStr" gallery="gallery"></gallery-item>
   </ul>
+  <label for="fuzzy">Search Galleries</label>
+  <input type="text" name="fuzzy" ng-model="homeCtrl.searchStr">
 
   <label for="gallery selection">Select Gallery</label>
   <select
