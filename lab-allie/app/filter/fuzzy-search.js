@@ -2,8 +2,7 @@
 
 module.exports = function() {
   return function(galleries, input) {
-    console.log('galleries', galleries);
-    console.log('input', input);
+    if(!input) return galleries;
     return galleries.filter(gallery => {
       if(gallery.name.includes(input)) return gallery;
     });
