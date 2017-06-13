@@ -2,9 +2,20 @@
   <h2>{{ galleryCtrl.title }}</h2>
   <create-gallery></create-gallery>
 
+  <input
+    type="text"
+    ng-model="galleryCtrl.filter"
+    placeholder="">
+
   <ul>
-    <gallery-item ng-repeat="item in galleryCtrl.galleries" gallery="item"></gallery-item>
+    <gallery-item ng-repeat="item in galleryCtrl.galleries " gallery="item"></gallery-item>
   </ul>
+
+  <select
+  name="gallery selection"
+  ng-options="items as item.name for item in galleryCtrl.galleries track by item._id"
+  ng-model="galleryCtrl.currentGallery">
+</select>
 
   <thumbnail-container
     ng-if="galleryCtrl.currentGallery" gallery="galleryCtrl.currentGallery"></thumbnail-containter>

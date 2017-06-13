@@ -20,6 +20,7 @@ module.exports = [
       this.title = 'This is where the pictures go';
 
       this.galleries = [];
+      this.filter='';
 
       this.fetchGalleries = () => {
         return galleryService.fetchGalleries()
@@ -31,6 +32,7 @@ module.exports = [
       };
 
       $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
+      $rootScope.$on('refreshGalleries', this.fetchGalleries);
       this.fetchGalleries();
     };
   }];
