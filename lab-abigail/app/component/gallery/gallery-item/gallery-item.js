@@ -13,7 +13,7 @@ module.exports = {
           err => $log.error(err)
         );
       };
-      
+
       this.showEditGallery = false;
 
       this.makeCurrentGallery = () => {
@@ -28,6 +28,7 @@ module.exports = {
       };
     };
   }],
+  
   bindings: {
     gallery: '<',
   },
