@@ -20,7 +20,7 @@ module.exports = [
       this.title = 'This is where the pictures go';
 
       this.galleries = [];
-      this.filter='';
+      this.filter=null;
 
       this.fetchGalleries = () => {
         return galleryService.fetchGalleries()

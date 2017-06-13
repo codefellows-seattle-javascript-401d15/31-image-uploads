@@ -8,7 +8,7 @@
     placeholder="">
 
   <ul>
-    <gallery-item ng-repeat="item in galleryCtrl.galleries " gallery="item"></gallery-item>
+    <gallery-item ng-repeat="item in galleryCtrl.galleries | fuzzySearch : galleryCtrl.filter" gallery="item"></gallery-item>
   </ul>
 
   <select
