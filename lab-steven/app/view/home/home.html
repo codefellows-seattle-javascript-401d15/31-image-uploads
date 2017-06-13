@@ -1,10 +1,11 @@
 <section>
   <h2>{{ homeCtrl.title }}</h2>
   <create-gallery></create-gallery>
+  <span>Total Galleries: {{ homeCtrl.galleries.length | number : 0 }}</span>
 
 
   <ul>
-    <gallery-item ng-repeat="gallery in homeCtrl.galleries" gallery="gallery"></gallery-item>
+    <gallery-item ng-repeat="gallery in homeCtrl.galleries | orderBy : 'name'" gallery="gallery"></gallery-item>
   </ul>
 
   <label for="gallery selection">Select Gallery</label>
