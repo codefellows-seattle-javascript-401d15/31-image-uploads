@@ -9,20 +9,21 @@
     ng-model="homeCtrl.currentGallery">
   </select>
 
-  <ul>
+  <ul ng-if="homeCtrl.galleries">
     <gallery-item
-    ng-repeat="item in homeCtrl.galleries | customSort : homeCtrl.galleryLimit"
+    ng-repeat="item in homeCtrl.galleries"
     gallery="item">
     </gallery-item>
   </ul>
 
-  <input type="number" ng-model="homeCtrl.galleryLimit" placeholder="100" value="100">
+  <!-- <ul ng-if="homeCtrl.galleries">
+    <gallery-item
+    ng-repeat="item in homeCtrl.galleries | customSort : homeCtrl.galleryLimit"
+    gallery="item">
+    </gallery-item>
+  </ul> -->
 
-  <select
-    name="gallery selecttion"
-    ng-options="item as item.name for item in homeCtrl.galleries track by item._id"
-    ng-model="homeCtrl.currentGallery">
-  </select>
+  <input type="number" ng-model="homeCtrl.galleryLimit" placeholder="100" value="100">
 
   <thumbnail-container
     ng-if="homeCtrl.currentGallery"  gallery="homeCtrl.currentGallery">
