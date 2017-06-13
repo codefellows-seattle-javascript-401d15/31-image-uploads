@@ -1,9 +1,10 @@
 <li>
   <div ng-if="!galleryItemCtrl.showEditGallery">
     <div>
-      <span class="gallery-name"><strong>name:</strong> {{ galleryItemCtrl.gallery.name }}</span><br>
-      <span class="gallery-desc"><strong>description:</strong>  {{ galleryItemCtrl.gallery.desc }}</span><br>
-      <span class="gallery-id"><strong> id:</strong>  {{ galleryItemCtrl.gallery._id }}</span><br>
+      <span class="gallery-name"><strong>name:</strong> {{ galleryItemCtrl.gallery.name | uppercase }}</span><br>
+      <span class="gallery-desc"><strong>description:</strong>  {{ galleryItemCtrl.gallery.desc | lowercase }}</span><br>
+      <span class="gallery-id"><strong> id:</strong>  {{ galleryItemCtrl.gallery._id | limitTo : 8 }}</span><br>
+      <span class="gallery-date"><strong> date:</strong> {{ galleryItemCtrl.gallery.created | date : 'longDate'  }}</span><br>
     </div>
   </div>
 

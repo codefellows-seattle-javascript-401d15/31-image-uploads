@@ -3,6 +3,6 @@
   <upload-pic gallery="thumbnailContainerCtrl.gallery"></upload-pic>
 
   <div>
-    <thumbnail class="thumbnail" ng-repeat="item in thumbnailContainerCtrl.gallery.pics" pic="item" gallery="thumbnailContainerCtrl.gallery"></thumbnail>
+    <thumbnail class="thumbnail" ng-repeat="item in thumbnailContainerCtrl.gallery.pics | orderBy: 'name'" pic="item" gallery="thumbnailContainerCtrl.gallery"></thumbnail>
   </div>
 </div>

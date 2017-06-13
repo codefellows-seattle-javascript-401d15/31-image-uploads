@@ -65,6 +65,8 @@ AWS_SECRET_ACCESS_KEY='<your secret key>'
 - You can logout, and will be taken to the login page.
 - add photos to an S3 bucket
 - and display the same images in the Gallery
-
-##### Upcoming features:
 - delete images from a gallery
+
+##### Attributions:
+I had a peek at this repo: https://github.com/jessicamvs/lab-34-filters-and-directives/blob/master/lab-jessica/app/filter/fuzzy-search.js
+from that I learned about using a template literal string to clean up my sollution and using the RegExp constructor to create a regexp I could test, to check for a character in my string.
