@@ -3,19 +3,30 @@
   <h2>Welcome home!</h2>
   <create-gallery></create-gallery>
 
-  <ul>
+  <select
+    name="gallery selection"
+    ng-options="item as item.name for item in homeCtrl.galleries track by item._id"
+    ng-model="homeCtrl.currentGallery">
+  </select>
+
+  <ul ng-if="homeCtrl.galleries">
     <gallery-item
-      ng-repeat="item in homeCtrl.galleries"
-      gallery="item">
+    ng-repeat="item in homeCtrl.galleries"
+    gallery="item">
     </gallery-item>
   </ul>
 
-  <select
-      name="gallery selecttion"
-      ng-options="item as item.name for item in homeCtrl.galleries track by item._id"
-      ng-model="homeCtrl.currentGallery">
-  </select>
+  <!-- <ul ng-if="homeCtrl.galleries">
+    <gallery-item
+    ng-repeat="item in homeCtrl.galleries | customSort : homeCtrl.galleryLimit"
+    gallery="item">
+    </gallery-item>
+  </ul> -->
 
-  <thumbnail-container ng-if="homeCtrl.currentGallery"  gallery="homeCtrl.currentGallery"></thumbnail-container>
+  <input type="number" ng-model="homeCtrl.galleryLimit" placeholder="100" value="100">
+
+  <thumbnail-container
+    ng-if="homeCtrl.currentGallery"  gallery="homeCtrl.currentGallery">
+  </thumbnail-container>
 
 </section>

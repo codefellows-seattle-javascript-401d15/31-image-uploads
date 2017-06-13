@@ -1,13 +1,18 @@
-# Lab 32: Testing Components
+# Lab 33: Angular Filters & Directives
 
 ## Description
-For this lab we fixed a few issues with the existing cfgram app and worked on testing. It no longer requires a page refresh to see the upload image file feature.
+For this lab we continued working on the existing cfgram app codebase. We created a custom filter that allows for real-time (fuzzy) searching of pictures in galleries. We also used the uppercase, lowercase, number, date, limitTo, and orderBy built-in angular filters in your application.
 
-* [Class 31](https://github.com/codefellows/seattle-javascript-401d15/tree/master/class-31-image-uploads)
-* [Lab 31](https://github.com/codefellows-seattle-javascript-401d15/31-image-uploads)
+* [Class 33](https://github.com/codefellows/seattle-javascript-401d15/tree/master/class-33-angular-filters)
+* [Lab 33](https://github.com/mmpadget/33-custom-filters)
+
+See also:
+
+* [Lab Branch 31](https://github.com/mmpadget/31-image-uploads/tree/lab-31/lab-padget)
+* [Lab Branch 32](https://github.com/mmpadget/31-image-uploads/tree/lab-32/lab-padget)
 
 ## Version
-* 0.1.1
+* 0.2.0
 
 ## Installation
 Please visit the following pages for how to install your project locally.
@@ -17,7 +22,7 @@ Please visit the following pages for how to install your project locally.
 * [Forking](https://guides.github.com/activities/forking/)
 
 ### Node
-You need to have node.js installed.
+You'll need to have node.js installed.
 * [Download Node](https://nodejs.org/en/)
 
 ### NPM Packages
@@ -214,6 +219,7 @@ In Terminal enter `npm run build-watch`
 Result: "Project is running at http://localhost:8080/", "webpack: Compiled successfully."
 
 ## Resources
+* [AngularJS Filters](https://docs.angularjs.org/guide/filter)
 * [Karma Mocha Reporter](https://www.npmjs.com/package/karma-mocha-reporter)
 * [Testing Controllers](http://www.bradoncode.com/blog/2015/06/05/ngmock-fundamentals-testing-controllers/)
 * [End to End Testing](https://docs.angularjs.org/guide/e2e-testing)
