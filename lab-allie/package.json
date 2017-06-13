@@ -39,12 +39,12 @@
     "webpack-dev-server": "^2.4.5"
   },
   "scripts": {
-     "test": "karma start --single-run",
-     "watch": "webpack-dev-server --inline --hot",
-     "build": "webpack",
-     "lint": "eslint",
-     "test-watch": "karma start --auto-watch"
-   },
+    "test": "karma start --single-run",
+    "watch": "webpack-dev-server --inline --hot",
+    "build": "webpack",
+    "lint": "eslint",
+    "test-watch": "karma start --auto-watch"
+  },
   "author": "Allie Grampa",
   "license": "MIT"
 }

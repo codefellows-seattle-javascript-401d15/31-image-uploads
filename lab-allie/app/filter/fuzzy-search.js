@@ -1,0 +1,11 @@
+'use strict';
+
+module.exports = function() {
+  return function(galleries, input) {
+    console.log('galleries', galleries);
+    console.log('input', input);
+    return galleries.filter(gallery => {
+      if(gallery.name.includes(input)) return gallery;
+    });
+  };
+};
