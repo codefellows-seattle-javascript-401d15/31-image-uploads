@@ -19,10 +19,11 @@
 
   <label for="gallery selection">Use: </label>
   <select
-  name="gallery selection"
-  ng-options="items as item.name for item in galleryCtrl.galleries track by item._id"
-  ng-model="galleryCtrl.currentGallery">
-</select>
+    name="gallery selection"
+    ng-options="item as item.name for item in galleryCtrl.galleries track by item._id"
+    ng-model="galleryCtrl.currentGallery"
+    >
+ </select>
 
   <thumbnail-container
     ng-if="galleryCtrl.currentGallery" gallery="galleryCtrl.currentGallery"></thumbnail-containter>
