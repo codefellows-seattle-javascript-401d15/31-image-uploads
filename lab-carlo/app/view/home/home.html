@@ -1,0 +1,15 @@
+<section class="home-content">
+  <h2>HOME</h2>
+  <create-gallery></create-gallery>
+
+  <ul>
+    <gallery-item
+      ng-repeat="item in homeCtrl.galleries | orderBy: '-name'"
+      gallery="item"
+      currentGallery="homeCtrl.currentGallery"
+      galleries="homeCtrl.galleries">
+    </gallery-item>
+  </ul>
+
+  <thumbnail-container ng-if="homeCtrl.currentGallery"  gallery="homeCtrl.currentGallery"></thumbnail-container>
+</section>

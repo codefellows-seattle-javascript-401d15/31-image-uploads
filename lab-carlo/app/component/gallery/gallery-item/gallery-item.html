@@ -1,0 +1,15 @@
+<li>
+  <div ng-if="!galleryItemCtrl.showEditGallery">
+    <div ng-click="galleryItemCtrl.makeCurrentGallery()">
+      <p>name: {{ galleryItemCtrl.gallery.name | uppercase}}</p>
+      <p>created {{ galleryItemCtrl.daysSince | date : "d" }} days ago</p>
+      <p>description: {{ galleryItemCtrl.gallery.desc | lowercase}}</p>
+      <p>id: {{ galleryItemCtrl.gallery._id | limitTo:8 }}</p>
+      <p>buy this gallery for: {{ galleryItemCtrl.cost | currency : number:2 : $ : 0}}</p>
+    </div>
+  </div>
+
+  <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
+  <button ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</button>
+  <button ng-click="galleryItemCtrl.deleteGallery()">delete</button>
+</li>
