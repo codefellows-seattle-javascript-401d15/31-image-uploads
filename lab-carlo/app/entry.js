@@ -6,10 +6,14 @@ const path = require('path');
 const camelcase = require('camelcase');
 const pascalcase = require('pascalcase');
 const angular = require('angular');
+const ngTouch = require('angular-touch');
+const ngAnimate = require('angular-animate');
+
 require('ng-file-upload');
 require('@uirouter/angularjs');
+require('angular-ui-bootstrap');
 
-const cfgram = angular.module('cfgram', ['ui.router', 'ngFileUpload']);
+const cfgram = angular.module('cfgram', ['ui.router','ngFileUpload','ngTouch','ngAnimate','ui.bootstrap']);
 
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach( path => cfgram.config(context(path)));
