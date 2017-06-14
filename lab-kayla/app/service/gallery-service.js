@@ -22,7 +22,7 @@ module.exports = [
             Authorization: `Bearer ${token}`
           }
         }
-        return $http.post(`${__API_URL__}/api/gallery`, gallery, config)
+        return $http.post(`${__API_URL__}/api/gallery`, gallery, config)// eslint-disable-line
       })
       .then(res => {
         $log.log('gallery created')
@@ -36,6 +36,31 @@ module.exports = [
       })
     }
 
+    service.deleteGallery = (gallery) => {
+      $log.debug('#galleryService.deleteGallery')
+
+      return authService.getToken()
+      .then(token => {
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/` // eslint-disable-line
+        let config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: 'application/json, text/plain, */*'
+          }
+        }
+        return $http.delete(`${__API_URL__}/api/gallery/${gallery._id}`, config)// eslint-disable-line
+      })
+      .then(
+        () => {
+          $log.log('gallery deleted')
+        },
+        err => {
+          $log.error(err.message)
+          return $q.reject(err)
+        }
+      )
+    }
+
     service.fetchGalleries = () => {
       $log.debug('#service.fetchGalleries')
       return authService.getToken()
@@ -47,7 +72,7 @@ module.exports = [
             Authorization: `Bearer ${token}`
           }
         }
-        return $http.get(`${__API_URL__}/api/gallery`, config)
+        return $http.get(`${__API_URL__}/api/gallery`, config) // eslint-disable-line
       })
       .then(res => {
         $log.log('galleries retrieved')
@@ -65,7 +90,7 @@ module.exports = [
 
       return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/gallery/${galleryId}`
+        let url = `${__API_URL__}/api/gallery/${galleryId}` // eslint-disable-line
         let config = {
           headers: {
             Accept: 'application/json',

@@ -1,5 +1,7 @@
 'use strict'
 
+require('./_edit-gallery.scss')
+
 module.exports = {
   template: require('./edit-gallery.html'),
   controllerAs:'editGalleryCtrl',
@@ -10,13 +12,18 @@ module.exports = {
     this.$onInit = () => {
       $log.debug('Edit Gallery Controller')
       this.updateGallery = () => {
-        $log.log(this.gallery, 'here')
         galleryService.updateGallery(this.gallery._id, this.gallery)
         .then(() => {
           $log.log('updated successfully')
           err => $log.error(err)
         })
       }
+
+      // this.deleteGallery = () => {
+      //   $log.debug('#editGalleryCtrl.deleteGallery')
+      //
+      //   galleryService.deleteGallery(this.galleries, this.gallery)
+      // }
     }
   }]
 }

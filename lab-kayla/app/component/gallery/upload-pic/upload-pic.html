@@ -2,12 +2,14 @@
   <form
   ng-submit="uploadPicCtrl.uploadPic()"
   novalidate>
-
+<h3>Upload Pictures</h3>
     <fieldset>
-      <label for="name">name</label>
-      <input type="text" name="name" placeholder="name" ng-model="uploadPicCtrl.pic.name">
-      <label for="description">description</label>
-      <input type="text" name="description" placeholder="description" ng-model="uploadPicCtrl.pic.description">
+      <div class="upload-fields">
+        <!-- <label for="name">name</label> -->
+        <input type="text" name="name" placeholder="name" ng-model="uploadPicCtrl.pic.name">
+        <!-- <label for="description">description</label> -->
+        <input type="text" name="description" placeholder="description" ng-model="uploadPicCtrl.pic.description">
+      </div>
     </fieldset>
 
     <div>
