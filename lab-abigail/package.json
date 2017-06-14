@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
+  "engines": {
+    "node": "4.4.7"
+  },
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "webpack -p --progress",
     "build": "webpack",
     "build-watch": "webpack-dev-server --inline --hot",
     "test": "karma start --single-run",
@@ -37,6 +42,7 @@
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
     "dotenv": "^4.0.0",
+    "express": "^4.15.3",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
     "html-loader": "^0.4.5",
