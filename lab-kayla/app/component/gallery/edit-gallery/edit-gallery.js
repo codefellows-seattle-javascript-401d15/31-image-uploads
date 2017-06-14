@@ -18,6 +18,12 @@ module.exports = {
           err => $log.error(err)
         })
       }
+
+      // this.deleteGallery = () => {
+      //   $log.debug('#editGalleryCtrl.deleteGallery')
+      //
+      //   galleryService.deleteGallery(this.galleries, this.gallery)
+      // }
     }
   }]
 }

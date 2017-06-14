@@ -12,7 +12,7 @@ module.exports = [
 
       return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic`// eslint-line-disable
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic`// eslint-disable-line
         let headers = {
           Authorization: `Bearer ${token}`,
           Accept: 'application/json'
@@ -44,22 +44,22 @@ module.exports = [
 
       return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic/${pic._id}`
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic/${pic._id}` // eslint-disable-line
         let config = {
           headers: {
             Authorization: `Bearer ${token}`,
-            Accept: 'application/json'
+            Accept: 'application/json, text/plain, */*'
           }
         }
         return $http.delete(url, config)
       })
       .then(
         () => {
-          $log.log('deleted pic')
+          $log.log('pic deleted')
 
           for(let i = 0; i < gallery.pics.length; i++) {
             if(gallery.pics[i]._id === pic._id) {
-              gallery.pics.splice(gallery[i], 1)
+              gallery.pics.splice(i, 1)
               break
             }
           }

@@ -9,19 +9,19 @@ module.exports = {
     pic: '<', // < tells angular one-way data binding
     gallery: '<'
   },
-  controller: [
-    '$log',
-    'picService',
-    function($log, picService) {
-      this.$onInit = () => {
-        $log.debug('thumbnailCtrl')
+  controller: ['$q', '$log', 'picService', 'galleryService', function($q, $log, picService, galleryService) {
+    this.$onInit = () => {
+      $log.debug('ThumbnailController')
 
-        this.deletePic = () => {
-          $log.debug('#thumbnailCtrl.deletePic')
-
-          picService.deletePic(this.gallery, this.pic)
-        }
+      this.deletePic = function() {
+        $log.debug('thumbnailCtrl.deletePic')
+        return picService.deletePic(this.gallery, this.pic)
+        .then(
+          galleryService.fetchGalleries,
+          err => $log.error(err)
+        )
+        .catch($q.reject)
       }
     }
-  ]
+  }]
 }
