@@ -1,0 +1,23 @@
+<section>
+  <h2>Welcome home!</h2>
+  <create-gallery></create-gallery>
+  <span>Number of galleries: {{ homeCtrl.galleries.length | number : 0 }}</span>
+
+  <br><label class="search-label">search gallery: </label><br>
+  <ul>
+    <input class="input-search" ng-model="homeCtrl.searchTerm" type="text" name="gallery search field" value="">
+    <gallery-item ng-repeat="item in homeCtrl.galleries | fuzzySearch : homeCtrl.searchTerm" gallery="item"></gallery-item>
+  </ul>
+
+  <select
+      name="gallery selection"
+      ng-options="item as item.name for item in homeCtrl.galleries track by item._id"
+      ng-model="homeCtrl.currentGallery">
+  </select>
+
+
+
+  <thumbnail-container ng-if="homeCtrl.currentGallery"  gallery="homeCtrl.currentGallery">
+    <button class="btn-std ng-click="" type="submit" name="delete pic button">delete pic</button>
+  </thumbnail-container>
+</section>
