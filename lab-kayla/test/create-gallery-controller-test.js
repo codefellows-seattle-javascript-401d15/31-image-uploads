@@ -4,8 +4,8 @@ const expect = require('chai').expect
 
 describe('Create Gallery Component', function() {
   beforeEach(done => {
-    angular.mock.module('cfgram')
-    angular.mock.inject(($rootScope, $httpBackend, $window, $componentController) => {
+    angular.mock.module('cfgram')// eslint-disable-line
+    angular.mock.inject(($rootScope, $httpBackend, $window, $componentController) => {// eslint-disable-line
       this.$rootScope = $rootScope
       this.$httpBackend = $httpBackend
       this.$window = $window
