@@ -1,0 +1,18 @@
+<section class="home-content">
+  <h2>This is Home</h2>
+  <create-gallery></create-gallery>
+
+  <ul>
+    <gallery-item ng-repeat="item in homeCtrl.galleries | orderBy: homeCtrl.gallery.name" gallery="item"></gallery-item>
+  </ul>
+  <input type="number" ng-model="homeCtrl.gallery.name" placeholder="100" value="100">
+
+
+  <select
+      name="gallery selection"
+      ng-options="item as item.name for item in homeCtrl.galleries track by item._id"
+      ng-model="homeCtrl.currentGallery">
+  </select>
+
+  <thumbnail-container ng-if="homeCtrl.currentGallery" gallery="homeCtrl.currentGallery"></thumbnail-container>
+</section>
