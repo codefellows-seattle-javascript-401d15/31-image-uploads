@@ -1,18 +1,15 @@
-# Lab 33: Angular Filters & Directives
+# Lab 34: Angular UI Bootstrap & Deployment
 
 ## Description
-For this lab we continued working on the existing cfgram app codebase. We created a custom filter that allows for real-time (fuzzy) searching of pictures in galleries. We also used the uppercase, lowercase, number, date, limitTo, and orderBy built-in angular filters in your application.
-
-* [Class 33](https://github.com/codefellows/seattle-javascript-401d15/tree/master/class-33-angular-filters)
-* [Lab 33](https://github.com/mmpadget/33-custom-filters)
-
-See also:
+For this lab we continued working on the existing cfgram app codebase with bootstrap and practiced deploying to Heroku.
 
 * [Lab Branch 31](https://github.com/mmpadget/31-image-uploads/tree/lab-31/lab-padget)
 * [Lab Branch 32](https://github.com/mmpadget/31-image-uploads/tree/lab-32/lab-padget)
+* [Lab Branch 33](https://github.com/mmpadget/31-image-uploads/tree/lab-33/lab-padget)
+* [Lab Branch 34](https://github.com/mmpadget/31-image-uploads/tree/lab-34/lab-padget)
 
 ## Version
-* 0.2.0
+* 0.3.0
 
 ## Installation
 Please visit the following pages for how to install your project locally.
@@ -36,7 +33,7 @@ npm init
 ```
 Dependencies:
 ```
-npm i -S @uirouter/angularjs angular babel-core babel-loader babel-preset-es2015 camelcase clean-webpack-plugin css-loader dotenv extract-text-webpack-plugin file-loader html-loader html-webpack-plugin ng-file-upload node-sass pascalcase sass-loader style-loader url-loader uuid webpack
+npm i -S @uirouter/angularjs angular babel-core babel-loader babel-preset-es2015 camelcase clean-webpack-plugin css-loader dotenv extract-text-webpack-plugin express file-loader html-loader html-webpack-plugin ng-file-upload node-sass pascalcase sass-loader style-loader url-loader uuid webpack
 ```
 Dev Dependencies:
 ```
