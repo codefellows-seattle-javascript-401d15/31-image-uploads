@@ -1,0 +1,16 @@
+<div class="">
+  <h3>{{thumbnailContainerCtrl.gallery.name}}</h3>
+  <upload-pic
+    gallery="thumbnailContainerCtrl.gallery"></upload-pic>
+  <div>
+    <thumbnail
+      ng-repeat="picture in thumbnailContainerCtrl.gallery.pics"
+      pic="picture"
+      gallery="thumbnailContainerCtrl.gallery">
+    </thumbnail>
+    <!-- <button
+      ng-click="thumbnailContainerCtrl.deletePic()"
+      pic="thumbnailContainerCtrl.gallery.pic"
+      gallery="thumbnailContainerCtrl.gallery">delete</button> -->
+  </div>
+</div>
