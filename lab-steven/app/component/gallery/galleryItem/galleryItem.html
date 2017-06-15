@@ -1,0 +1,14 @@
+<li>
+  <div ng-if="!galleryItemCtrl.showEditGallery">
+    <div ng-click="galleryItemCtrl.makeGalleryCurrent()">
+      <p>Name: {{ galleryItemCtrl.gallery.name | uppercase }}</p>
+      <p>Description: {{ galleryItemCtrl.gallery.desc | lowercase }}</p>
+      <p>Date Created: {{ galleryItemCtrl.gallery.created | date : 'longDate' }} </p>
+      <p>Id: {{ galleryItemCtrl.gallery._id | limitTo : 7 }}</p>
+    </div>
+  </div>
+
+  <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
+  <button ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">Edit</button>
+  <delete-gallery gallery="galleryItemCtrl.gallery"></delete-gallery>
+</li>

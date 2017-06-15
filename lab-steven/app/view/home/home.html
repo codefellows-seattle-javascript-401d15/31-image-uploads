@@ -1,0 +1,19 @@
+<section>
+  <h2>{{ homeCtrl.title }}</h2>
+  <create-gallery></create-gallery>
+  <span>Total Galleries: {{ homeCtrl.galleries.length | number : 0 }}</span>
+
+
+  <ul>
+    <gallery-item ng-repeat="gallery in homeCtrl.galleries | orderBy : 'name' | fuzzySearch : homeCtrl.searchStr" gallery="gallery"></gallery-item>
+  </ul>
+  <label for="fuzzy">Search Galleries</label>
+  <input type="text" name="fuzzy" ng-model="homeCtrl.searchStr">
+
+  <label for="gallery selection">Select Gallery</label>
+  <select
+  name="gallery selection"
+  ng-options="item as item.name for item in homeCtrl.galleries track by item._id"
+  ng-model="homeCtrl.currentGallery"></select>
+  <thumbnail-container ng-if="homeCtrl.currentGallery" gallery="homeCtrl.currentGallery"></thumbnail-container>
+</section>
