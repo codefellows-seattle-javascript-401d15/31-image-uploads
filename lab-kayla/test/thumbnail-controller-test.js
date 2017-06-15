@@ -49,10 +49,6 @@ describe('Thumbnail Controller', function() {
     done()
   })
 
-  // describe('Default properties', () => {  --finish
-  //
-  // })
-
   describe('Functional methods', () => {
     beforeEach(done => {
       this.expectUrl = 'http://localhost:3000/api/gallery/5678/pic/1234'
@@ -64,8 +60,7 @@ describe('Thumbnail Controller', function() {
     })
 
     afterEach(done => {
-      this.$httpBackend.flush()
-      this.$rootScope.$apply()
+
       done()
     })
 

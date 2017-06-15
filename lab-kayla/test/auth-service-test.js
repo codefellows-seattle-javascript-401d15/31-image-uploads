@@ -1,7 +1,7 @@
 //listen to lecture after first break about the setup
 'use strict'
 
-const expect = require('chia').expect
+const expect = require('chai').expect
 
 describe('Auth Service', function() {
   beforeEach(done => {

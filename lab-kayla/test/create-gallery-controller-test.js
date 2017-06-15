@@ -37,7 +37,7 @@ describe('Create Gallery Component', function() {
       }
       let expectGallery = {
         name: 'gallery one',
-        desc: 'description one'
+        description: 'description one'
       }
 
       this.$httpBackend.expectPOST(expectUrl, expectGallery, expectHeaders)
@@ -45,8 +45,6 @@ describe('Create Gallery Component', function() {
       this.createGalleryCtrl.gallery = expectGallery
       expect(this.createGalleryCtrl.createGallery).to.not.throw()
 
-      this.$httpBackend.flush()
-      this.$rootScope.apply()
       done()
     })
   })
