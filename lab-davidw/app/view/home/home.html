@@ -1,0 +1,12 @@
+<section>
+  <h2>Welcome home!</h2>
+  <create-gallery></create-gallery>
+
+  <ul>
+    <gallery-item ng-repeat="item in homeCtrl.galleries" gallery="item"></gallery-item>
+  </ul>
+
+  <thumbnail-container ng-if="homeCtrl.currentGallery"  gallery="homeCtrl.currentGallery">
+    <button class="btn-std ng-click="" type="submit" name="delete pic button">delete pic</button>
+  </thumbnail-container>
+</section>
