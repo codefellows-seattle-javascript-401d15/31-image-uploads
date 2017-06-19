@@ -1,80 +1,85 @@
+'use strict';
 
-'use strict'
+const dotenv = require('dotenv');
+const webpack = require('webpack');
+const HTMLPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanPlugin = require('clean-webpack-plugin');
 
-const dotenv = require('dotenv')
-const webpack = require('webpack')
-const HTMLPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const CleanPlugin = require('clean-webpack-plugin')
+dotenv.load();
 
-dotenv.load()
+const production = process.env.NODE_ENV === 'production';
 
-const production = process.env.NODE_ENV === 'production'
-
-const plugins = [
-  new ExtractTextPlugin('bundle.css'),
+let plugins = [
+  new ExtractTextPlugin('bundle-[hash].css'),
   new HTMLPlugin({ template: `${__dirname}/app/index.html` }),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(process.env.API_URL),
-    __DEBUG__: JSON.stringify(!production)
-  })
-]
+    __DEBUG__: JSON.stringify(!production),
+  }),
+];
 
-if(production) {
+if (production) {
   plugins = plugins.concat([
+    new CleanPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compress: {
-        warnings: false
-      }
+        warnings: false,
+      },
     }),
-    new CleanPlugin()
-  ])
+  ]);
 }
 
 module.exports = {
+  plugins,
   entry: `${__dirname}/app/entry.js`,
   output: {
-    filename: 'bundle.js',
-    path: `${__dirname}/build`
+    filename: 'bundle-[hash].js',
+    path: `${__dirname}/build`,
+    publicPath: process.env.CDN_URL,
   },
-  plugins,
+  devServer: {
+    historyApiFallback: true,
+  },
   devtool: production ? false : 'source-map',
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
       {
         test: /\.html$/,
-        use: 'html-loader'
+        use: 'html-loader',
       },
       {
         test: /\.(eot|ttf|woff|svg).*/,
-        use: 'file-loader'
+        use: 'url-loader?limit=60000&name=font/[hash].[ext]',
+      },
+      {
+        test: /\.(jpg|jpeg|tiff|png|gif)$/,
+        loader: 'url-loader?limit=60000&name=image/[hash].[ext]',
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract(
-          {
-            use: [
-              {
-                loader: 'css-loader',
-                options: { sourceMap: true }
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: { sourceMap: true },
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+                includePaths: [`${__dirname}/app/scss/`],
               },
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: true,
-                  includePaths: [`${__dirname}/app/scss/`]
-                }
-              }
-            ]
-          }
-        )
-      }
-    ]
-  }
-}
+            },
+          ],
+        }),
+      },
+    ],
+  },
+};

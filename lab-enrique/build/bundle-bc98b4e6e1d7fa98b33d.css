@@ -1,0 +1,18 @@
+html, body {
+  width: 90%; }
+.home-content {
+  background: white;
+  min-height: 50%;
+  width: 100%; }
+html, body {
+  background-color: white; }
+fieldset {
+  width: 50%; }
+button {
+  background: orange; }
+button {
+  background: yellow; }
+img {
+  max-width: 2vw; }
+
+/*# sourceMappingURL=bundle-bc98b4e6e1d7fa98b33d.css.map*/
