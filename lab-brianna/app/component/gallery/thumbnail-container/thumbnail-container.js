@@ -1,7 +1,5 @@
 'use strict';
 
-// require('./_thumbnail-container.scss')
-
 module.exports = {
   template: require('./thumbnail-container.html'),
   controllerAs: 'thumbnailContainerCtrl',
@@ -10,7 +8,7 @@ module.exports = {
   },
   controller: [function() {
     this.$onInit = () => {
-
-    }
-  }]
-}
+      console.log('Please work');
+    };
+  }],
+};
