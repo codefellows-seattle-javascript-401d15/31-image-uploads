@@ -1,7 +1,5 @@
 'use strict';
 
-module.exports = ['$logProvider', logConfig];
-
-function logConfig($logProvider) {
+module.exports = ['$logProvider', function($logProvider) {
   $logProvider.debugEnabled(__DEBUG__);
-}
+}];

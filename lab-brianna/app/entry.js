@@ -7,7 +7,7 @@ const path = require('path');
 const angular = require('angular');
 const camelcase = require('camelcase');
 const pascalcase = require('pascalcase');
-const uiRouter = require('@uirouter/angularjs');
+require('@uirouter/angularjs');
 require('ng-file-upload');
 
 const cfgram = angular.module('cfgram', ['ui.router', 'ngFileUpload']);

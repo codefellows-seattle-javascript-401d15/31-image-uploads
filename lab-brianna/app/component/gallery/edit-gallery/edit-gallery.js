@@ -6,13 +6,15 @@ module.exports = {
   bindings: {
     gallery: '<',
   },
-  controller: ['$log', 'galleryService', function($log, galleryService) {
+  controller: ['$log', 'galleryService', '$rootScope', function($log, galleryService, $rootScope) {
     this.$onInit = () => {
-      $log.debug('Edit Gallery Controller');
+      $log.debug('edit gallery controller');
+
       this.updateGallery = () => {
-        galleryService.updateGallery(this.gallery._id, this.gallery)
+        galleryService.updateGallery(this.gallery)
         .then(
-          () => $log.log('updated successfully'),
+          () => $log.log('Successfully updated!'),
+          $rootScope.$on('locationChangeSuccess', this.fetchGalleries),
           err => $log.error(err)
         );
       };

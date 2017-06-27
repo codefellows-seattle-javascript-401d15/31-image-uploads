@@ -1,29 +1,25 @@
 'use strict';
 
-require('./_create-gallery.scss');
-
+// require scss
 
 module.exports = {
   template: require('./create-gallery.html'),
-  controllerAs : 'createGalleryCtrl',
-  controller: ['$log', 'galleryService', function($log, galleryService){
-    this.$onInit = () =>{
+  controllerAs: 'createGalleryCtrl',
+  controller: ['$log', 'galleryService', '$rootScope', function($log, galleryService, $rootScope) {
+    this.$onInit = () => {
       $log.debug('Create Gallery Controller');
       this.gallery = {};
 
-      this.createGallery = () =>{
+      return this.createGallery = () => {
         return galleryService.createGallery(this.gallery)
-        .then(()=> {
+        .then(() => {
           let res = this.gallery;
           this.gallery.name = null;
           this.gallery.desc = null;
-          // debugger
+          $rootScope.$emit('newGalleryCreation');
           return res;
-        },
-        err => {
-          // debugger
-          $log.error(err);
-        });
+        })
+        .catch(err => $log.error(err));
       };
     };
   }],

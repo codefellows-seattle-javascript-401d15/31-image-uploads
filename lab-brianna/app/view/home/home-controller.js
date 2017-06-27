@@ -1,37 +1,30 @@
 'use strict';
 
-require('./_home.scss');
+// require scss
 
 module.exports = [
-  '$log',
-  '$rootScope',
-  '$location',
-  'galleryService',
-  'authService',
-  HomeController];
+  '$log', '$rootScope', 'galleryService',
+  function($log, $rootScope, galleryService) {
+    this.$onInit = () => {
+      $log.debug('HomeController()');
 
-function HomeController($log, $rootScope, $location, galleryService, authService) {
-  this.$onInit = () => {
-    $log.debug('HomeController()');
-    this.galleries = [];
+      this.title = 'Welcome to cfGram!';
 
-    this.logout = function(){
-      $log.log('successfully signed out');
-      authService.logout()
-      .then(() => $location.url('/join'));
+      this.galleries = [];
+
+      this.fetchGalleries = () => {
+        return galleryService.fetchGalleries()
+        .then(galleries => {
+          this.galleries = galleries;
+          this.currentGallery = this.galleries[0];
+        })
+        .catch(err => $log.error(err));
+      };
+
+      $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
+      $rootScope.$on('newGalleryCreation', this.fetchGalleries);
+
+      this.fetchGalleries();
     };
-
-    this.fetchGalleries = () => {
-      return galleryService.fetchGalleries()
-      .then(galleries => {
-        this.galleries = galleries;
-        this.currentGallery = this.galleries[0];
-        console.log(this.currentGallery);
-      })
-      .catch(err => $log.error(err));
-    };
-
-    $rootScope.$on('locationChangeSuccess', this.fetchGalleries);
-    return this.fetchGalleries();
-  };
-}
+  },
+];

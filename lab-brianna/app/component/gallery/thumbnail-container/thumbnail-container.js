@@ -8,6 +8,7 @@ module.exports = {
   },
   controller: [function() {
     this.$onInit = () => {
+      this.title = 'Thumbnails';
       console.log('Please work');
     };
   }],

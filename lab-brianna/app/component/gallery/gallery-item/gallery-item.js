@@ -1,23 +1,24 @@
 'use strict';
-require('./_gallery-item.scss');
 
 module.exports = {
   template: require('./gallery-item.html'),
   controllerAs: 'galleryItemCtrl',
-  controller: ['$log', 'galleryService', function($log, galleryService) {
-    $log.debug('Gallery Item Controller');
-
-    this.showEditGallery = false;
-
-    this.deleteGallery = () => {
-      galleryService.deleteGallery(this.gallery._id, this.gallery)
-      .then(
-        (res) => $log.log(`${res.status}, delete successfully`),
-        err => $log.error(err)
-      );
-    };
-  }],
   bindings: {
     gallery: '<',
   },
+  controller: ['$log', 'galleryService', function($log, galleryService) {
+    this.$onInit = () => {
+      $log.debug('Gallery Item Controller');
+
+      this.showEditGallery = false;
+
+      this.deleteGallery = () => {
+        galleryService.deleteGallery(this.gallery)
+        .then(
+          () => $log.log('Successfully deleted!'),
+          err => $log.error(err)
+        );
+      };
+    };
+  }],
 };

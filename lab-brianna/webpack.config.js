@@ -1,41 +1,41 @@
-'use strict'
+'use strict';
 
-const dotenv = require('dotenv')
-const webpack = require('webpack')
-const HTMLPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const CleanPlugin = require('clean-webpack-plugin')
+const dotenv = require('dotenv');
+const webpack = require('webpack');
+const HTMLPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanPlugin = require('clean-webpack-plugin');
 
-dotenv.load()
+dotenv.load();
 
-const production = process.env.NODE_ENV === 'production'
+const production = process.env.NODE_ENV === 'production';
 
-const plugins = [
+let plugins = [
   new ExtractTextPlugin('bundle.css'),
   new HTMLPlugin({ template: `${__dirname}/app/index.html` }),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(process.env.API_URL),
-    __DEBUG__: JSON.stringify(!production)
-  })
-]
+    __DEBUG__: JSON.stringify(!production),
+  }),
+];
 
 if(production) {
-  let plugins = plugins.concat([
+  plugins = plugins.concat([
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compress: {
-        warnings: false
-      }
+        warnings: false,
+      },
     }),
-    new CleanPlugin()
-  ])
+    new CleanPlugin(),
+  ]);
 }
 
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
   output: {
     filename: 'bundle.js',
-    path: `${__dirname}/build`
+    path: `${__dirname}/build`,
   },
   plugins,
   devtool: production ? false : 'source-map',
@@ -44,15 +44,15 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
       {
         test: /\.html$/,
-        use: 'html-loader'
+        use: 'html-loader',
       },
       {
-        test: /\.(eot|ttf|woff|svg).*/,
-        use: 'url?limit=10000&name=image/[hash].[ext]'
+        test: /\.(eot|ttf|woff|svg|png).*/,
+        use: 'file-loader',
       },
       {
         test: /\.scss$/,
@@ -61,19 +61,19 @@ module.exports = {
             use: [
               {
                 loader: 'css-loader',
-                options: { sourceMap: true }
+                options: { sourceMap: true },
               },
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  includePaths: [`${__dirname}/app/scss/`]
-                }
-              }
-            ]
+                  includePaths: [`${__dirname}/app/scss/`],
+                },
+              },
+            ],
           }
-        )
-      }
-    ]
-  }
-}
+        ),
+      },
+    ],
+  },
+};

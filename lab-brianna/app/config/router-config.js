@@ -1,29 +1,31 @@
-'use strict'
+'use strict';
 
-module.exports = ['$stateProvider', '$urlRouterProvider', routerConfig]
+module.exports = [
+  '$stateProvider',
+  '$urlServiceProvider',
+  function($stateProvider, $urlServiceProvider) {
+    $urlServiceProvider.rules.when('', '/join#signup'); //from lecture
+    // $urlServiceProvider.when('', '/home'); // from demo code
+    $urlServiceProvider.rules.when('/', '/join#signup');
+    $urlServiceProvider.rules.when('/signup', '/join#signup');
+    $urlServiceProvider.rules.when('/login', '/join#login');
 
-function routerConfig($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.when('', '/home')
-  $urlRouterProvider.when('/', '/join#signup')
-  $urlRouterProvider.when('/signup', '/join#signup')
-  $urlRouterProvider.when('/login', '/join#login')
-
-  let routes = [
-    {
-      name: 'home',
-      url: '/home',
-      template: require('../view/home/home.html'),
-      controller: 'HomeController',
-      controllerAs: 'homeCtrl'
-    },
-    {
-      name: 'landing',
-      url: '/join',
-      template: require('../view/landing/landing.html'),
-      controller: 'LandingController',
-      controllerAs: 'landingCtrl'
-    }
-  ]
-
-  routes.forEach($stateProvider.state)
-}
+    let routes = [
+      {
+        name: 'home',
+        url: '/home',
+        template: require('../view/home/home.html'),
+        controller: 'HomeController',
+        controllerAs: 'homeCtrl',
+      },
+      {
+        name: 'landing',
+        url: '/join',
+        template: require('../view/landing/landing.html'),
+        controller: 'LandingController',
+        controllerAs: 'landingCtrl',
+      },
+    ];
+    routes.forEach(route => $stateProvider.state(route));
+  },
+];
