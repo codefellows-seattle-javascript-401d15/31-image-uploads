@@ -1,8 +1,8 @@
 // ** VARS ** //
-$brand-primary: #7C7A7A;
-$brand-background: #444444;
+$brand-primary: #ff5252;
+$brand-background: #1f5768;
 $brand-links: #000000;
-$brand-text: #ffffff;
+$brand-text: #f5f8fa;
 $padding: 3%;
 $margin: 0px auto;
 $brand-main-font: 'Raleway', sans-serif;
@@ -33,6 +33,11 @@ h1 {
 
 img {
   height: 2em;
+}
+
+label{
+  color: $brand-text;
+  font-family: $brand-main-font;
 }
 
 #welcome {
