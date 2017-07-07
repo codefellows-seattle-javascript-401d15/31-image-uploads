@@ -1,0 +1,16 @@
+<section>
+  <md-card class="card">
+
+    <div ng-if="!galleryItemCtrl.showEditGallery">
+      <md-card-title class="md-headline">Name: {{galleryItemCtrl.gallery.name }}</md-card-title>
+      <md-card-content>
+        <p>description: {{galleryItemCtrl.gallery.desc}}</p>
+      </md-card-content>
+    </div>
+
+    <md-button class="md-raised md-warn" ng-click="galleryItemCtrl.deleteGallery()">Delete Gallery</md-button>
+
+    <edit-gallery ng-if="galleryItemCtrl.showEditGallery" gallery="galleryItemCtrl.gallery"></edit-gallery>
+    <md-button class="md-raised" ng-click="galleryItemCtrl.showEditGallery = !galleryItemCtrl.showEditGallery">edit</md-button>
+  </md-card>
+</section>
