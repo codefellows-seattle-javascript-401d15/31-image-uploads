@@ -1,0 +1,21 @@
+<section>
+  <form
+    name="editGalleryForm"
+    ng-submit="galleryItemCtrl.editGallery()">
+    <fieldset>
+      <md-input-container
+        style="border: thin solid gray; border-radius: 0.2em; background-color: white">
+        <label for="name">name</label>
+        <input name="name" type="text" ng-model="editGalleryCtrl.gallery.name" style="width:20em">
+      </md-input-container><br />
+
+      <md-input-container
+        style="border: thin solid gray; border-radius: 0.2em; background-color: white">
+        <label for="description">desc</label>
+        <input name="description" type="text" ng-model="editGalleryCtrl.gallery.desc" style="width:20em">
+      </md-input-container><br />
+
+      <md-button class="md-raised" type="submit">Update Gallery</md-button>
+    </fieldset>
+  </form>
+</section>

@@ -1,0 +1,52 @@
+<section>
+  <form
+    name="picForm"
+    ng-submit="uploadPicCtrl.uploadPic()"
+    novalidate>
+
+    <fieldset>
+      <md-input-container
+        style="border: thin solid gray; border-radius: 0.2em; background-color: white">
+        <label for="name">name</label>
+        <input
+          type="text"
+          name="name"
+          ng-model="uploadPicCtrl.pic.name"
+          style="width:20em"
+          required>
+      </md-input-container><br />
+
+      <md-input-container
+        style="border: thin solid gray; border-radius: 0.2em; background-color: white">
+        <label for="desc">desc</label>
+        <input
+        type="text"
+        name="desc"
+        ng-model="uploadPicCtrl.pic.desc"
+        style="width:20em"
+        required>
+      </md-input-container><br />
+
+      <md-button
+        ng-disabled="picForm.username.$invalid || picForm.desc.$invalid"
+        class="md-raised"
+        ngf-select
+        ng-model="uploadPicCtrl.pic.file"
+        ngf-accept="'image/*'"
+        requred>
+        choose file
+      </md-button> <md-button
+        class="md-raised"
+        type="submit"
+        name="upload picture"
+        ng-disabled="picForm.$invalid">
+        upload file
+      </md-button>
+      <img class="thumb" ngf-src="uploadPicCtrl.pic.file">
+      <p>{{uploadPicCtrl.pic.file.name}}</p>
+
+      <p ng-click="uploadPicCtrl.clear()">Clear</p>
+    </fieldset>
+
+  </form>
+</section>
