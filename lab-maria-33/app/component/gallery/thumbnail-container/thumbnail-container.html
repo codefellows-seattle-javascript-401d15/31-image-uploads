@@ -1,0 +1,29 @@
+<div>
+    <h3>Upload a pic to <i>{{thumbnailContainerCtrl.gallery.name}}</i></h3>
+    <gallery-item gallery="thumbnailContainerCtrl.gallery"></gallery-item>
+    <upload-pic gallery="thumbnailContainerCtrl.gallery"></upload-pic>
+
+
+    <div>
+      <h3>{{ thumbnailContainerCtrl.gallery.name }}</h3>
+      <div flex ng-cloak>
+        <md-grid-list
+              md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
+              md-row-height-gt-md="1:2" md-row-height="360px"
+              md-gutter="8px" md-gutter-gt-sm="4px" >
+
+          <md-grid-tile ng-repeat="item in thumbnailContainerCtrl.gallery.pics"
+                        md-colspan-sm="1"
+                        md-colspan-xs="1">
+            <md-card>
+              <md-card-title class="md-headline">{{item.name}}</md-card-title>
+              <md-card-content>
+                <thumbnail pic="item" gallery="thumbnailContainerCtrl.gallery"></thumbnail>
+              </md-card-content>
+            </md-card>
+          </md-grid-tile>
+        </md-grid-list>
+      </div>
+    </div>
+
+</div>

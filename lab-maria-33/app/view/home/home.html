@@ -1,0 +1,29 @@
+
+<section>
+  <navbar></navbar>
+  <h2>{{homeCtrl.title}}</h2>
+
+  <create-gallery></create-gallery>
+  <md-input-container
+    style="border: thin solid gray; border-radius: 0.2em; background-color: white">
+    <input
+      ng-if="!homeCtrl.currentGallery"
+      placeholder="search"
+      class="input-search"
+      ng-model="homeCtrl.searchTerm"
+      type="text"
+      name="gallery search field"
+      style="width:15em"
+      value="">
+    </md-input-container>
+  <select
+       name="gallery selection"
+       ng-options="item as item.name for item in homeCtrl.galleries track by item._id"
+       ng-model="homeCtrl.currentGallery">
+       <option value="">-- galleries --</option>
+   </select>
+  <section ng-if=!homeCtrl.currentGallery>
+    <gallery-item ng-repeat="item in homeCtrl.galleries | fuzzySearch : homeCtrl.searchTerm | orderBy : 'id'" gallery="item"></gallery-item>
+  </section>
+  <thumbnail-container ng-if="homeCtrl.currentGallery" gallery="homeCtrl.currentGallery"></thumbnail-container>
+</section>
