@@ -59,6 +59,7 @@ module.exports = [
               gallery.pics.splice(i, 1)
             }
           }
+          return gallery.pic
         },
         err => {
           $log.error(err.message)
