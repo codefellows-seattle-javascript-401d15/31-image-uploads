@@ -13,7 +13,6 @@ module.exports = {
       this.$onInit = () => {
         $log.debug('uploadPicController')
         this.pic = {}
-
         this.uploadPic = () => {
           picService.uploadPic(this.gallery, this.pic)
           .then(

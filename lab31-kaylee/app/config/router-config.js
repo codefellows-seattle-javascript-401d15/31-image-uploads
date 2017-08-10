@@ -25,5 +25,5 @@ module.exports = [
       controllerAs: 'landingCtrl'
     }
   ]
-  routes.forEach($stateProvider.state)
+  routes.forEach(route => $stateProvider.state(route))
 }]

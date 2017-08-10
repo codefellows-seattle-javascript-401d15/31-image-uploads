@@ -3,16 +3,15 @@
 module.exports = [
   '$log', '$q', '$http', 'Upload', 'authService',
   function($log, $q, $http, Upload, authService) {
-    $log.debug('Pic service');
+    $log.debug('Pic service')
 
-    let service = {};
+    let service = {}
 
     service.uploadPic = function(gallery, pic) {
       $log.debug('picService.uploadPic()')
-
       return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic`;
+        let url = `${__API_URL__}/api/gallery/${gallery._id}/pic`
         let headers = {
           Authorization: `Bearer ${token}`,
           Accept: 'application/json',
@@ -30,22 +29,20 @@ module.exports = [
       })
       .then(
         res => {
-          gallery.pics.push(res.data);
-          return res.data;
+          gallery.pics.push(res.data)
+          return res.data
         },
         err => {
-          $log.error(err.message);
-          $q.reject(err);
+          $log.error(err.message)
+          $q.reject(err)
         }
       )
     }
     service.deletePic = function(gallery, pic) {
       $log.debug('picService.deletePic()')
-
       return authService.getToken()
       .then(token => {
         let url = `${__API_URL__}/api/gallery/${gallery._id}/pic/${pic._id}`
-
         let config = {
           headers: {
             Accept: 'application/json, text/plain, */*',
@@ -56,12 +53,12 @@ module.exports = [
       })
       .then(
         () => {
-          $log.log('Pic successfully deleted')
-          gallery.pics.forEach((ele, index) => {
-            if(ele._id === pic._id) {
-              gallery.pics.splice(index, 1)
+          $log.log('Picture successfully deleted')
+          for(let i = 0; i < gallery.pics.length; i++) {
+            if(gallery.pics[i]._id === pic._id) {
+              gallery.pics.splice(i, 1)
             }
-          })
+          }
         },
         err => {
           $log.error(err.message)
@@ -70,5 +67,5 @@ module.exports = [
       )
     }
     return service
-  },
+  }
 ]

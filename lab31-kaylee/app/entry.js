@@ -6,11 +6,12 @@ const path = require('path')
 const camelcase = require('camelcase')
 const pascalcase = require('pascalcase')
 const angular = require('angular')
+require('ng-file-upload')
 require('@uirouter/angularjs')
 
 const slugram = angular.module('slugram', ['ui.router'])
 
-const routesApp = angular.module('routesApp', ['ui.router'])
+const routesApp = angular.module('routesApp', ['ui.router', 'ngFileUpload'])
 
 let context = require.context('./config/', true, /\.js$/)
 context.keys().forEach(key => routesApp.config(context(key)))
