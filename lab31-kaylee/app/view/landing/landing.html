@@ -1,0 +1,16 @@
+<section class="landing">
+  <div ng-if="landingCtrl.showSignup">
+    <div>
+      <signup></signup>
+      <p>Already have an account?</p>
+      <a href="/#!/login" ng-click="landingCtrl.showSignup=false">Sign-In Here</a>
+    </div>
+  </div>
+  <div ng-if="!landingCtrl.showSignup">
+    <div>
+      <login></login>
+      <p>Want to create an account?</p>
+      <a href="/#!/signup" ng-click="landingCtrl.showSignup=true">Sign-Up Here</a>
+    </div>
+  </div>
+</section>
